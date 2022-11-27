@@ -7,6 +7,7 @@ import { SignIn } from './Signin';
 import { store } from './store';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function App() {
 

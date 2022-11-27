@@ -4,6 +4,7 @@ import *as yup from 'yup';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../Routes/routes";
+import { toast } from "react-toastify";
 
 export const useContainer = (): IFormModel => {
 
@@ -39,6 +40,11 @@ export const useContainer = (): IFormModel => {
         })
             .then((response) => {
                 navigator(app_routes.sigin_path)
+            })
+            .catch((response)=>{
+                toast.error('Already Signed Up', {
+                    position: toast.POSITION.TOP_RIGHT
+                });
             })
 
     }

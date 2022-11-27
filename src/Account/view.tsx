@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import { SideBar } from "../SideBar";
 import { IFormModel } from "./model";
 
@@ -56,6 +57,7 @@ export const View = (props: IFormModel) => (
                 </div>
             </div>
             <button type="submit" className=" tw-bg-custom_blue tw-font-medium tw-rounded-lg tw-text-sm tw-w-full  tw-px-5 tw-py-2.5 tw-text-center ">Submit</button>
+            <ToastContainer />
         </form>
     </div>
 )

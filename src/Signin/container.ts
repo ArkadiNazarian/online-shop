@@ -4,7 +4,8 @@ import *as yup from 'yup';
 import axios from "axios";
 import { useAppDispatch } from "../redux-hooks";
 import { set_account } from "./redux";
-import { data } from "autoprefixer";
+
+import { toast } from "react-toastify";
 
 export const useContainer = (): IFormModel => {
 
@@ -33,10 +34,15 @@ export const useContainer = (): IFormModel => {
             } as IModel
         })
             .then((response) => {
-                console.log(response)
                 dispatch(set_account({
                     token:response.data.token
                 }))
+            })
+            .catch((response)=>{
+                console.log(response)
+                toast.error('Wrong Email or Password', {
+                    position: toast.POSITION.TOP_RIGHT
+                });
             })
 
     }
