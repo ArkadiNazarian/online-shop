@@ -3,7 +3,7 @@ import { RootState } from '../store';
 import { IStoreModel } from './model';
 
 const initialState: IStoreModel = {
-    token:''
+    token: ''
 }
 
 export const account_slice = createSlice({
@@ -11,9 +11,7 @@ export const account_slice = createSlice({
     initialState,
     reducers: {
         set_account: (state, action: PayloadAction<IStoreModel>) => {
-            state = {
-                token:action.payload.token
-            }
+            state.token = action.payload.token;
         }
     }
 })
