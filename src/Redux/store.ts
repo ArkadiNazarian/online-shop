@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { account_slice } from "./Signin/redux";
+import { account_slice } from "../Signin/redux";
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 

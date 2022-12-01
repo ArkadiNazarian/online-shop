@@ -3,13 +3,13 @@ import { IFormModel, IModel } from "./model";
 import *as yup from 'yup';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../Routes/routes";
+import { route_names } from "../Routes/route-names";
 import { toast } from "react-toastify";
 
 export const useContainer = (): IFormModel => {
 
     const navigator = useNavigate()
-    const app_routes = routes();
+    const app_routes = route_names();
 
     const initial_values = {
         first_name: "",
@@ -39,7 +39,7 @@ export const useContainer = (): IFormModel => {
             } as IModel
         })
             .then((response) => {
-                navigator(app_routes.sigin_path)
+                navigator(app_routes.signin_path)
             })
             .catch((response)=>{
                 toast.error('Already Signed Up', {

@@ -1,4 +1,5 @@
 export interface IModel {
-    account_path: string;
-    products_path: string;
+    sign_up: string;
+    handle_dropdown: Function;
+    show_items: boolean;
 }

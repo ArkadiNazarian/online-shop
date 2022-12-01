@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import { IFormModel, IModel } from "./model";
 import *as yup from 'yup';
 import axios from "axios";
-import { useAppDispatch } from "../redux-hooks";
+import { useAppDispatch } from "../Redux/redux-hooks";
 import { set_account } from "./redux";
 
 import { toast } from "react-toastify";

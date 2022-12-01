@@ -30,7 +30,7 @@ export const View = (props: IFormModel) => (
                     {props.form_errors.password && <p className="tw-bg-custom_red">{props.form_errors.password}</p>}
                 </div>
             </div>
-            <button type="submit" className=" tw-bg-custom_blue tw-font-medium tw-rounded-lg tw-text-sm tw-w-full  tw-px-5 tw-py-2.5 tw-text-center ">Submit</button>
+            <button type="submit" className=" tw-bg-custom_green tw-border-border_color tw-font-medium tw-rounded-lg tw-text-sm tw-w-full  tw-px-5 tw-py-2.5 tw-text-center ">Submit</button>
             <ToastContainer />
         </form>
     </div>
