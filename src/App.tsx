@@ -6,9 +6,20 @@ import { store } from './Redux/store';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import 'react-toastify/dist/ReactToastify.css';
+import { axios_config } from './Axios/axios-config';
 
 export function App() {
 
+  const access_token = store.getState()
+  axios_config.interceptors.request.use((config) => {
+    if (access_token.account.token) {
+      config.headers!.Authorization = `Bearer ${access_token.account.token}`;
+    }
+    console.log(config.headers)
+    return config
+  },
+    (error) => Promise.reject(error)
+  )
   let persistor = persistStore(store);
   const app_routes = routes();
 
@@ -20,7 +31,7 @@ export function App() {
             <Routes>
               {
                 app_routes.map((value, index) => (
-                  <Route path={value.path} element={value.component}/>
+                  <Route path={value.path} element={value.component} />
                 ))
               }
             </Routes>

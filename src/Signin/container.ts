@@ -6,6 +6,7 @@ import { useAppDispatch } from "../Redux/redux-hooks";
 import { set_account } from "./redux";
 
 import { toast } from "react-toastify";
+import { axios_config } from "../Axios/axios-config";
 
 export const useContainer = (): IFormModel => {
 
@@ -35,14 +36,22 @@ export const useContainer = (): IFormModel => {
         })
             .then((response) => {
                 dispatch(set_account({
-                    token:response.data.token
+                    token: response.data.token
                 }))
             })
-            .catch((response)=>{
+            .catch((response) => {
                 console.log(response)
                 toast.error('Wrong Email or Password', {
                     position: toast.POSITION.TOP_RIGHT
                 });
+            });
+
+        axios_config.get("/auth/me")
+            .then((result) => {
+                console.log(result)
+            })
+            .catch((result) => {
+                console.log(result)
             })
 
     }
