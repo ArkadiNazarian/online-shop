@@ -19,10 +19,10 @@ export const useContainer = (): IFormModel => {
     } as IModel;
 
     const validation_schema = yup.object().shape({
-        email: yup.string().required(),
-        password: yup.string().min(8).required(),
-        first_name: yup.string().required(),
-        last_name: yup.string().required()
+        email: yup.string().required("This field is required"),
+        password: yup.string().min(8).required("This field is required"),
+        first_name: yup.string().required("This field is required"),
+        last_name: yup.string().notRequired()
     });
 
     const action_submit = (values: IModel) => {

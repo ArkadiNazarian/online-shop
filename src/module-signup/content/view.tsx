@@ -17,7 +17,7 @@ export const View = (props: IFormModel) => (
                         value={props.form_data.first_name}
                         onChange={props.handleChange}
                     />
-                    {props.form_errors.first_name && <p className="tw-bg-custom_red">{props.form_errors.first_name}</p>}
+                    {props.form_errors.first_name && <p className="tw-text-custom_purple">{props.form_errors.first_name}</p>}
                 </div>
                 <div>
                     <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_blue tw-mt-4">Last name</label>
@@ -29,7 +29,6 @@ export const View = (props: IFormModel) => (
                         value={props.form_data.last_name}
                         onChange={props.handleChange}
                     />
-                    {props.form_errors.last_name && <p className="tw-bg-custom_red">{props.form_errors.last_name}</p>}
                 </div>
                 <div>
                     <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_blue tw-mt-4">Email</label>
@@ -41,7 +40,7 @@ export const View = (props: IFormModel) => (
                         value={props.form_data.email}
                         onChange={props.handleChange}
                     />
-                    {props.form_errors.email && <p className="tw-bg-custom_red">{props.form_errors.email}</p>}
+                    {props.form_errors.email && <p className="tw-text-custom_purple">{props.form_errors.email}</p>}
                 </div>
                 <div>
                     <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_blue tw-mt-4">Password</label>
@@ -53,7 +52,7 @@ export const View = (props: IFormModel) => (
                         value={props.form_data.password}
                         onChange={props.handleChange}
                     />
-                    {props.form_errors.password && <p className="tw-bg-custom_red">{props.form_errors.password}</p>}
+                    {props.form_errors.password && <p className="tw-text-custom_purple">{props.form_errors.password}</p>}
                 </div>
             </div>
             <button type="submit" className="tw-ml-4 tw-bg-custom_green tw-border-button_border_color tw-font-medium tw-rounded-lg tw-text-sm tw-w-full  tw-px-5 tw-py-2.5 tw-text-center ">Submit</button>
