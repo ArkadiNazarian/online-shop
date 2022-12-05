@@ -1,20 +1,23 @@
-import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import { routes } from './Routes/routes';
-import { store } from './Redux/store';
-import { persistStore } from 'redux-persist';
-import { PersistGate } from 'redux-persist/integration/react';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
+import { axios_config } from './Axios/axios-config';
 
 export function App() {
 
-  let persistor = persistStore(store);
+  useEffect(() => {
+    async function getMe() {
+      const me = await axios_config.get("/auth/me");
+      console.log(me)
+    }
+    getMe();
+  }, []);
+
   const app_routes = routes();
 
   return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
         <div className="App">
           <BrowserRouter>
             <Routes>
@@ -26,7 +29,5 @@ export function App() {
             </Routes>
           </BrowserRouter>
         </div>
-      </PersistGate>
-    </Provider>
   );
 }
