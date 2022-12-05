@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import { SideBar } from "../SideBar";
+import { SideBar } from "../../SideBar/index";
 import { IFormModel } from "./model";
 
 export const View = (props: IFormModel) => (

@@ -1,6 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../Redux/store';
-import { IStoreModel } from './model';
+import { RootState } from '../../Redux/store';
+
+interface IStoreModel {
+    token:string;
+}
 
 const initialState: IStoreModel = {
     token: ''

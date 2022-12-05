@@ -2,11 +2,11 @@ import { useFormik } from "formik";
 import { IFormModel, IModel } from "./model";
 import *as yup from 'yup';
 import axios from "axios";
-import { useAppDispatch } from "../Redux/redux-hooks";
-import { set_account } from "./redux";
+import { useAppDispatch } from "../../Redux/redux-hooks";
+import { set_account } from "../redux/redux";
 
 import { toast } from "react-toastify";
-import { axios_config } from "../Axios/axios-config";
+import { axios_config } from "../../Axios/axios-config";
 
 export const useContainer = (): IFormModel => {
 

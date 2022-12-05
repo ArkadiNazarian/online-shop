@@ -12,6 +12,3 @@ export interface IFormModel {
     handleChange: (e: any) => void;
 }
 
-export interface IStoreModel {
-    token:string;
-}

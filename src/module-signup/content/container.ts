@@ -3,7 +3,7 @@ import { IFormModel, IModel } from "./model";
 import *as yup from 'yup';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { route_names } from "../Routes/route-names";
+import { route_names } from "../../Routes/route-names";
 import { toast } from "react-toastify";
 
 export const useContainer = (): IFormModel => {
