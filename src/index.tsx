@@ -1,9 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
+import { axios_config } from './Axios/axios-config';
 import './index.css';
+import { store } from './Redux/store';
 import reportWebVitals from './reportWebVitals';
 
+const access_token = store.getState()
+  axios_config.interceptors.request.use((config) => {
+    if (access_token.account.token) {
+      config.headers!.Authorization = `Bearer ${access_token.account.token}`;
+    }
+    console.log(config.headers)
+    return config
+  },
+    (error) => Promise.reject(error)
+  )
+  
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
