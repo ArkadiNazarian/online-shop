@@ -3,7 +3,7 @@ import { IFormModel, IModel } from "./model";
 import *as yup from 'yup';
 import axios from "axios";
 import { useAppDispatch } from "../../Redux/redux-hooks";
-import { getAccountSelector, get_identity, set_account } from "../redux/redux";
+import { getUserSelector, get_identity, set_user } from "../../Redux/reducers/signin-reducer";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 export const useContainer = (): IFormModel => {
 
     const dispatch = useAppDispatch();
-    const token = useSelector(getAccountSelector);
+    const token = useSelector(getUserSelector);
     const initial_values = {
         email: "",
         password: ""
@@ -34,7 +34,7 @@ export const useContainer = (): IFormModel => {
             } as IModel
         })
             .then((response) => {
-                dispatch(set_account({
+                dispatch(set_user({
                     token: response.data.token
                 }))
             })

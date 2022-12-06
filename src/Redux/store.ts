@@ -1,20 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { account_slice } from "../module-signin/redux/redux";
+import { user_slice } from "./reducers/signin-reducer";
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 
-const persistedAccountReducer = persistReducer(
+const persistedUserReducer = persistReducer(
     {
-        key: "  site.account",
+        key: "  site.user",
         storage,
         whitelist: ['token'],
     },
-    account_slice.reducer
+    user_slice.reducer
 );
 
 export const store = configureStore({
     reducer: {
-        account: persistedAccountReducer
+        user: persistedUserReducer
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

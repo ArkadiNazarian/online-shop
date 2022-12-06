@@ -1,5 +1,5 @@
-import { SignIn } from '../module-signin/content/index';
-import { Signup } from '../module-signup/content/index';
+import { SignIn } from '../module-account/signin';
+import { Signup } from '../module-account/signup';
 import { route_names } from './route-names';
 
 
