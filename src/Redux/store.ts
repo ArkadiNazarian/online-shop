@@ -17,9 +17,11 @@ export const store = configureStore({
         account: persistedAccountReducer
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            serializableCheck: false,
-        })
+    getDefaultMiddleware({
+        immutableCheck: false,
+        serializableCheck: false,
+        thunk: true,
+    })
 })
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -7,13 +7,13 @@ import { axios_config } from './Axios/axios-config';
 
 export function App() {
 
-  useEffect(() => {
-    async function getMe() {
-      const me = await axios_config.get("/auth/me");
-      console.log(me)
-    }
-    getMe();
-  }, []);
+  // useEffect(() => {
+  //   async function getMe() {
+  //     const me = await axios_config.get("/auth/me");
+  //     console.log(me)
+  //   }
+  //   getMe();
+  // }, []);
 
   const app_routes = routes();
 

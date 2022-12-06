@@ -3,15 +3,15 @@ import { IFormModel, IModel } from "./model";
 import *as yup from 'yup';
 import axios from "axios";
 import { useAppDispatch } from "../../Redux/redux-hooks";
-import { set_account } from "../redux/redux";
-
+import { getAccountSelector, get_identity, set_account } from "../redux/redux";
 import { toast } from "react-toastify";
-import { axios_config } from "../../Axios/axios-config";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 export const useContainer = (): IFormModel => {
 
     const dispatch = useAppDispatch();
-
+    const token = useSelector(getAccountSelector);
     const initial_values = {
         email: "",
         password: ""
@@ -44,16 +44,12 @@ export const useContainer = (): IFormModel => {
                     position: toast.POSITION.TOP_RIGHT
                 });
             });
-
-        axios_config.get("/auth/me")
-            .then((result) => {
-                console.log(result)
-            })
-            .catch((result) => {
-                console.log(result)
-            })
-
     }
+
+    useEffect(() => {
+        if (!token.token) return
+        dispatch(get_identity())
+    }, [dispatch, token.token])
 
     const formik = useFormik({
         initialValues: initial_values,
