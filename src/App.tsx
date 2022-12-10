@@ -3,17 +3,18 @@ import './index.css';
 import { routes } from './Routes/routes';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
-import { axios_config } from './Axios/axios-config';
+import { useSelector } from 'react-redux';
+import { getUserSelector, get_identity } from './Redux/reducers/signin-reducer';
+import { useAppDispatch } from './Redux/redux-hooks';
 
 export function App() {
+  const token = useSelector(getUserSelector);
+  const dispatch = useAppDispatch();
 
-  // useEffect(() => {
-  //   async function getMe() {
-  //     const me = await axios_config.get("/auth/me");
-  //     console.log(me)
-  //   }
-  //   getMe();
-  // }, []);
+  useEffect(() => {
+    if (!token.token) return
+    dispatch(get_identity())
+}, [dispatch, token.token])
 
   const app_routes = routes();
 

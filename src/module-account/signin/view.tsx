@@ -1,10 +1,10 @@
 import { ToastContainer } from "react-toastify";
-import { SideBar } from "../../SideBar/index";
+import { Layout } from "../../Layout/index";
 import { IFormModel } from "./model";
 
 export const View = (props: IFormModel) => (
     <div className="tw-h-screen tw-flex tw-flex-row">
-        <SideBar />
+        <Layout />
         <form onSubmit={props.action_submit}>
             <div className="tw-mb-6 tw-ml-4">
                 <div>

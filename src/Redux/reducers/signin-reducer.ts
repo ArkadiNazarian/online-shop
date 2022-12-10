@@ -12,10 +12,10 @@ interface IStoreModel {
 
 const initialState: IStoreModel = {
     token: '',
-    _id: '',
-    first_name: '',
-    last_name: '',
-    email: ''
+    _id: undefined,
+    first_name: undefined,
+    last_name: undefined,
+    email: undefined
 }
 
 export const get_identity = createAsyncThunk('user/getIdentity', async () => {

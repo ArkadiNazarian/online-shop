@@ -59,6 +59,7 @@ export const useContainer = (): IFormModel => {
         action_submit: formik.handleSubmit,
         form_data: formik.values,
         form_errors: formik.errors,
-        handleChange: formik.handleChange
+        handleChange: formik.handleChange,
+        sign_up: app_routes.signup_path
     }
 }
