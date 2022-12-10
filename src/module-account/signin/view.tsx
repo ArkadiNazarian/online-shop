@@ -8,10 +8,10 @@ export const View = (props: IFormModel) => (
         <form onSubmit={props.action_submit}>
             <div className="tw-mb-6 tw-ml-4">
                 <div>
-                    <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_blue tw-mt-8">Email</label>
+                    <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_black tw-mt-8">Email</label>
                     <input
                         type="email"
-                        className="tw-border tw-border-custom_gray tw-bg-custom_gray tw-text-sm tw-rounded-lg tw-outline focus:tw-border-2 focus:tw-border-custom_blue tw-w-full tw-p-2.5 "
+                        className="tw-border tw-border-custom_gray tw-bg-custom_gray tw-text-sm tw-rounded-lg tw-outline focus:tw-border-2 focus:tw-border-custom_black tw-w-full tw-p-2.5 "
                         name="email"
                         value={props.form_data.email}
                         onChange={props.handleChange}
@@ -19,10 +19,10 @@ export const View = (props: IFormModel) => (
                     {props.form_errors.email && <p className="tw-text-custom_purple">{props.form_errors.email}</p>}
                 </div>
                 <div>
-                    <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_blue tw-mt-4">Password</label>
+                    <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_black tw-mt-4">Password</label>
                     <input
                         type="password"
-                        className="tw-border tw-border-custom_gray tw-bg-custom_gray tw-text-sm tw-rounded-lg tw-outline focus:tw-border-2 focus:tw-border-custom_blue tw-w-full tw-p-2.5  "
+                        className="tw-border tw-border-custom_gray tw-bg-custom_gray tw-text-sm tw-rounded-lg tw-outline focus:tw-border-2 focus:tw-border-custom_black tw-w-full tw-p-2.5  "
                         name="password"
                         value={props.form_data.password}
                         onChange={props.handleChange}
