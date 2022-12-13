@@ -22,7 +22,7 @@ export const useContainer = (): IFormModel => {
         email: yup.string().required("This field is required"),
         password: yup.string().min(8).required("This field is required"),
         first_name: yup.string().required("This field is required"),
-        last_name: yup.string().notRequired()
+        last_name: yup.string().required("This field is required")
     });
 
     const action_submit = (values: IModel) => {
@@ -41,7 +41,7 @@ export const useContainer = (): IFormModel => {
             .then((response) => {
                 navigator(app_routes.signin_path)
             })
-            .catch((response)=>{
+            .catch((response) => {
                 toast.error('Already Signed Up', {
                     position: toast.POSITION.TOP_RIGHT
                 });

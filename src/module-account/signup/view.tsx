@@ -16,7 +16,7 @@ export const View = (props: IFormModel) => (
                         value={props.form_data.first_name}
                         onChange={props.handleChange}
                     />
-                    <label htmlFor="first_name" className="tw-text-custom_background tw-text-lg tw-absolute tw-left-0 peer-focus:tw-text-sm peer-focus:tw--top-4 tw-transition-all">First name</label>
+                    <label htmlFor="first_name" className={`tw-text-custom_background ${props.form_data.first_name ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>First name</label>
                     {props.form_errors.first_name && <p className="tw-text-custom_green">{props.form_errors.first_name}</p>}
                 </div>
                 <div className="tw-relative tw-mt-8">
@@ -28,7 +28,8 @@ export const View = (props: IFormModel) => (
                         value={props.form_data.last_name}
                         onChange={props.handleChange}
                     />
-                    <label htmlFor="last_name" className="tw-text-custom_background tw-text-lg tw-absolute tw-left-0 peer-focus:tw-text-sm peer-focus:tw--top-4 tw-transition-all">Last name</label>
+                    <label htmlFor="last_name" className={`tw-text-custom_background ${props.form_data.last_name ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Last name</label>
+                    {props.form_errors.last_name && <p className="tw-text-custom_green">{props.form_errors.last_name}</p>}
                 </div>
                 <div className="tw-relative tw-mt-8">
                     <input
@@ -39,7 +40,7 @@ export const View = (props: IFormModel) => (
                         value={props.form_data.email}
                         onChange={props.handleChange}
                     />
-                    <label htmlFor="email" className="tw-text-custom_background tw-text-lg tw-absolute tw-left-0 peer-focus:tw-text-sm peer-focus:tw--top-4 tw-transition-all">Email</label>
+                    <label htmlFor="email" className={`tw-text-custom_background ${props.form_data.email ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Email</label>
                     {props.form_errors.email && <p className="tw-text-custom_green">{props.form_errors.email}</p>}
                 </div>
                 <div className="tw-relative tw-mt-8">
@@ -51,7 +52,7 @@ export const View = (props: IFormModel) => (
                         onChange={props.handleChange}
                         className="tw-py-1 tw-w-64 tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
                     />
-                    <label htmlFor="password" className="tw-text-custom_background tw-text-lg tw-absolute tw-left-0 peer-focus:tw-text-sm peer-focus:tw--top-4 tw-transition-all">Password</label>
+                    <label htmlFor="password" className={`tw-text-custom_background ${props.form_data.password ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Password</label>
                     {props.form_errors.password && <p className="tw-text-custom_green">{props.form_errors.password}</p>}
                 </div>
                 <button type="submit" className="tw-mt-8 tw-bg-custom_yellow tw-border-none tw-font-medium tw-rounded-lg tw-text-sm tw-w-44  tw-px-5 tw-py-2.5 tw-text-center ">Sign Up</button>
