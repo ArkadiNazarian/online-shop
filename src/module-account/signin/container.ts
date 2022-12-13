@@ -5,11 +5,13 @@ import axios from "axios";
 import { useAppDispatch } from "../../Redux/redux-hooks";
 import { set_user } from "../../Redux/reducers/signin-reducer";
 import { toast } from "react-toastify";
+import { route_names } from "../../Routes/route-names";
 
 export const useContainer = (): IFormModel => {
 
     const dispatch = useAppDispatch();
-    
+    const app_routes = route_names();
+
     const initial_values = {
         email: "",
         password: ""
@@ -54,6 +56,7 @@ export const useContainer = (): IFormModel => {
         action_submit: formik.handleSubmit,
         form_data: formik.values,
         form_errors: formik.errors,
-        handleChange: formik.handleChange
+        handleChange: formik.handleChange,
+        sign_up: app_routes.signup_path
     }
 }

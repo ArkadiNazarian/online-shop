@@ -1,37 +1,50 @@
+import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { Layout } from "../../Layout/index";
 import { IFormModel } from "./model";
 
 export const View = (props: IFormModel) => (
-    <div className="tw-h-screen tw-flex tw-flex-row">
-        <Layout />
-        <form onSubmit={props.action_submit}>
-            <div className="tw-mb-6 tw-ml-4">
-                <div>
-                    <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_black tw-mt-8">Email</label>
-                    <input
-                        type="email"
-                        className="tw-border tw-border-custom_gray tw-bg-custom_gray tw-text-sm tw-rounded-lg tw-outline focus:tw-border-2 focus:tw-border-custom_black tw-w-full tw-p-2.5 "
-                        name="email"
-                        value={props.form_data.email}
-                        onChange={props.handleChange}
-                    />
-                    {props.form_errors.email && <p className="tw-text-custom_purple">{props.form_errors.email}</p>}
-                </div>
-                <div>
-                    <label className="tw-block tw-mb-2 tw-text-xl tw-font-medium tw-text-custom_black tw-mt-4">Password</label>
-                    <input
-                        type="password"
-                        className="tw-border tw-border-custom_gray tw-bg-custom_gray tw-text-sm tw-rounded-lg tw-outline focus:tw-border-2 focus:tw-border-custom_black tw-w-full tw-p-2.5  "
-                        name="password"
-                        value={props.form_data.password}
-                        onChange={props.handleChange}
-                    />
-                    {props.form_errors.password && <p className="tw-text-custom_purple">{props.form_errors.password}</p>}
+    <div className="tw-grid tw-grid-cols-2 tw-w-screen tw-h-screen">
+        <div className="tw-col-start-1 tw-bg-custom_background">
+            <div className="tw-h-screen tw-flex-col tw-flex tw-justify-center tw-items-center">
+                <div className="tw-bg-custom_gray tw-w-96 tw-flex tw-flex-col tw-items-center tw-border-none tw-rounded-3xl">
+                    <p className="tw-text-custom_white tw-text-2xl">Sign In</p>
+                    <form onSubmit={props.action_submit}>
+                        <div className="tw-relative">
+                            <input
+                                type="email"
+                                className="tw-py-1 tw-w-64 tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
+                                name="email"
+                                id="email"
+                                value={props.form_data.email}
+                                onChange={props.handleChange}
+                            />
+                            <label htmlFor="email" className={`tw-text-custom_background ${props.form_data.email ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>First name</label>
+                            {props.form_errors.email && <p className="tw-text-custom_green">{props.form_errors.email}</p>}
+                        </div>
+                        <div className="tw-relative tw-mt-8">
+                            <input
+                                type="password"
+                                className="tw-py-1 tw-w-64 tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
+                                name="password"
+                                id="password"
+                                value={props.form_data.password}
+                                onChange={props.handleChange}
+                            />
+                            <label htmlFor="password" className={`tw-text-custom_background ${props.form_data.password ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Last name</label>
+                            {props.form_errors.password && <p className="tw-text-custom_green">{props.form_errors.password}</p>}
+                        </div>
+
+                        <button type="submit" className="tw-mt-8 tw-bg-custom_yellow tw-border-none tw-font-medium tw-rounded-lg tw-text-sm tw-w-44  tw-px-5 tw-py-2.5 tw-text-center ">Sign Up</button>
+                        <p className="tw-text-custom_white tw-text-base">Don't have an account?<Link to={props.sign_up} className="tw-text-base tw-text-custom_yellow tw-ml-1">Singn In here</Link></p>
+                        <ToastContainer />
+                    </form>
                 </div>
             </div>
-            <button type="submit" className=" tw-bg-custom_green tw-border-border_color tw-font-medium tw-rounded-lg tw-text-sm tw-w-full  tw-px-5 tw-py-2.5 tw-text-center ">Submit</button>
-            <ToastContainer />
-        </form>
-    </div>
+        </div>
+        <div className="tw-col-start-2 tw-bg-custom_gray tw-flex tw-flex-col tw-justify-center tw-items-center">
+            <p className="tw-text-custom_background tw-text-8xl" >WELCOME</p>
+            <p className="tw-text-custom_background tw-text-8xl tw-mt-[-2rem]" >TO</p>
+            <p className="tw-text-custom_background tw-text-8xl tw-mt-[-2rem]" >DINGO SHOP</p>
+        </div>
+    </div >
 )

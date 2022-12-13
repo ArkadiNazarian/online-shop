@@ -1,4 +1,3 @@
-import { Landing } from '../LandingPage/view';
 import { SignIn } from '../module-account/signin';
 import { Signup } from '../module-account/signup';
 import { route_names } from './route-names';
@@ -18,7 +17,7 @@ export const routes = () => {
         },
         {
             path: app_routes.default_path,
-            component: <Landing />
+            component: <Signup />
         }
     ]
 
