@@ -12,11 +12,12 @@ export const View = (props: IFormModel) => (
                         <div className="tw-relative">
                             <input
                                 type="email"
-                                className="tw-py-1 tw-w-64 tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
+                                className="tw-py-1 tw-mt-1 tw-w-64 tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
                                 name="email"
                                 id="email"
                                 value={props.form_data.email}
                                 onChange={props.handleChange}
+                                onBlur={props.handleBlur}
                             />
                             <label htmlFor="email" className={`tw-text-custom_background ${props.form_data.email ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>First name</label>
                             {props.form_errors.email && <p className="tw-text-custom_green">{props.form_errors.email}</p>}
@@ -24,11 +25,12 @@ export const View = (props: IFormModel) => (
                         <div className="tw-relative tw-mt-8">
                             <input
                                 type="password"
-                                className="tw-py-1 tw-w-64 tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
+                                className="tw-py-1 tw-mt-1 tw-w-64 tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
                                 name="password"
                                 id="password"
                                 value={props.form_data.password}
                                 onChange={props.handleChange}
+                                onBlur={props.handleBlur}
                             />
                             <label htmlFor="password" className={`tw-text-custom_background ${props.form_data.password ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Last name</label>
                             {props.form_errors.password && <p className="tw-text-custom_green">{props.form_errors.password}</p>}

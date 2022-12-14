@@ -1,4 +1,4 @@
-import { useFormik } from "formik";
+import { FormikErrors, useFormik } from "formik";
 import { IFormModel, IModel } from "./model";
 import *as yup from 'yup';
 import axios from "axios";
@@ -52,11 +52,17 @@ export const useContainer = (): IFormModel => {
         onSubmit: action_submit
     });
 
+    const form_errors: FormikErrors<IModel> = {
+		email: formik.submitCount || formik.touched.email ? formik.errors.email : "",
+        password: formik.submitCount || formik.touched.password ? formik.errors.password : ""
+	};
+
     return {
         action_submit: formik.handleSubmit,
         form_data: formik.values,
-        form_errors: formik.errors,
+        form_errors: form_errors,
         handleChange: formik.handleChange,
-        sign_up: app_routes.signup_path
+        sign_up: app_routes.signup_path,
+        handleBlur: formik.handleBlur
     }
 }

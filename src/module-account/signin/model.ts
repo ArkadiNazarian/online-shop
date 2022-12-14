@@ -11,5 +11,6 @@ export interface IFormModel {
     form_errors: FormikErrors<IModel>,
     handleChange: (e: any) => void;
     sign_up:string;
+    handleBlur:any;
 }
 
