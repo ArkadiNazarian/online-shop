@@ -4,18 +4,22 @@ import { RootState } from '../store';
 
 interface IStoreModel {
     token: string;
-    _id?: string;
-    first_name?: string;
-    last_name?: string;
-    email?: string;
+    user?:{
+        _id?: string;
+        first_name?: string;
+        last_name?: string;
+        email?: string;
+    }
 }
 
 const initialState: IStoreModel = {
     token: '',
-    _id: undefined,
-    first_name: undefined,
-    last_name: undefined,
-    email: undefined
+    user:{
+        _id: undefined,
+        first_name: undefined,
+        last_name: undefined,
+        email: undefined
+    }
 }
 
 export const get_identity = createAsyncThunk('user/getIdentity', async () => {
@@ -37,10 +41,10 @@ export const user_slice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(get_identity.fulfilled, (state, action: PayloadAction<IStoreModel>) => {
-            state.first_name = action.payload.first_name;
-            state._id = action.payload._id;
-            state.last_name = action.payload.last_name;
-            state.email = action.payload.email;
+            state.user!.first_name = action.payload.user?.first_name;
+            state.user!._id = action.payload.user?._id;
+            state.user!.last_name = action.payload.user?.last_name;
+            state.user!.email = action.payload.user?.email;
         })
         builder.addCase(get_identity.rejected, () => {
             console.log("error")

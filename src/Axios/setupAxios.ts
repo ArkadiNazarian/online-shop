@@ -13,6 +13,4 @@ export default function setupAxios(axios: any, store: any) {
       },
       (err: any) => Promise.reject(err)
     );
-  
   }
-  

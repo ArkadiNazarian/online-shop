@@ -18,6 +18,6 @@ export const useContainer = (): IModel => {
         sign_up: app_routes.signup_path,
         handle_dropdown,
         show_items,
-        first_name:data.first_name
+        first_name:data.user?.first_name
     }
 }

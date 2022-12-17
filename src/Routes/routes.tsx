@@ -6,7 +6,7 @@ import { route_names } from './route-names';
 export const routes = () => {
     const app_routes = route_names();
 
-    const application_routes = [
+    const public_routes = [
         {
             path: app_routes.signup_path,
             component: <Signup />
@@ -21,5 +21,15 @@ export const routes = () => {
         }
     ]
 
-    return application_routes
+    const private_routes = [
+        {
+            path: app_routes.example,
+            component: <div>helllo</div>
+        }
+    ]
+
+    return {
+        public_routes,
+        private_routes
+    }
 }
