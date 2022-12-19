@@ -2,7 +2,7 @@ export default function setupAxios(axios: any, store: any) {
     axios.interceptors.request.use(
       (config: any) => {
         const {
-          user: { token },
+          account: { token },
         } = store.getState();
   
         if (token) {

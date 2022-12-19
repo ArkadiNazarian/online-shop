@@ -4,7 +4,7 @@ import { RootState } from '../store';
 
 interface IStoreModel {
     token: string;
-    user?:{
+    user?: {
         _id?: string;
         first_name?: string;
         last_name?: string;
@@ -14,7 +14,7 @@ interface IStoreModel {
 
 const initialState: IStoreModel = {
     token: '',
-    user:{
+    user: {
         _id: undefined,
         first_name: undefined,
         last_name: undefined,
@@ -25,7 +25,7 @@ const initialState: IStoreModel = {
 export const get_identity = createAsyncThunk('user/getIdentity', async () => {
     try {
         const response = await axios_config.get("/auth/me");
-        return response.data.data.result;      
+        return response.data.data.result;
     } catch (response) {
         return console.log(response);
     }
@@ -40,19 +40,11 @@ export const account_slice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(get_identity.fulfilled, (state, action: PayloadAction<IStoreModel>) => {
-            if(state.user?.first_name){
-                state.user!.first_name = action.payload.user?.first_name;
-            }
-            if(state.user?.last_name){
-                state.user!.last_name = action.payload.user?.last_name;
-            }
-            if(state.user?._id){
-                state.user._id = action.payload.user?._id;
-            }
-            if(state.user?.email){
-                state.user.email = action.payload.user?.email;
-            }
+        builder.addCase(get_identity.fulfilled, (state, action) => {
+            state.user!.first_name = action.payload.first_name;
+            state.user!.last_name = action.payload.last_name;
+            state.user!._id = action.payload._id;
+            state.user!.email = action.payload.email;
         })
         builder.addCase(get_identity.rejected, () => {
             console.log("error")
