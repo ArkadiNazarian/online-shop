@@ -37,7 +37,11 @@ export const account_slice = createSlice({
     reducers: {
         set_account: (state, action: PayloadAction<IStoreModel>) => {
             state.token = action.payload.token;
-        }
+        },
+        sign_out: (state) => {
+            state.token=""
+            state.user={}
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(get_identity.fulfilled, (state, action) => {
@@ -52,6 +56,6 @@ export const account_slice = createSlice({
     }
 })
 
-export const { set_account } = account_slice.actions;
+export const { set_account, sign_out } = account_slice.actions;
 
 export const getAccountSelector = (state: RootState) => state.account;

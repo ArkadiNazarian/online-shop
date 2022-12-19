@@ -23,7 +23,7 @@ export const routes = () => {
 
     const private_routes = [
         {
-            path: app_routes.example,
+            path: app_routes.dashboard,
             component: <div>helllo</div>
         }
     ]
