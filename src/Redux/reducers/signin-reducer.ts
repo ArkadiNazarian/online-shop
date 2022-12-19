@@ -31,20 +31,28 @@ export const get_identity = createAsyncThunk('user/getIdentity', async () => {
     }
 })
 
-export const user_slice = createSlice({
-    name: 'user',
+export const account_slice = createSlice({
+    name: 'account',
     initialState,
     reducers: {
-        set_user: (state, action: PayloadAction<IStoreModel>) => {
+        set_account: (state, action: PayloadAction<IStoreModel>) => {
             state.token = action.payload.token;
         }
     },
     extraReducers: (builder) => {
         builder.addCase(get_identity.fulfilled, (state, action: PayloadAction<IStoreModel>) => {
-            state.user!.first_name = action.payload.user?.first_name;
-            state.user!._id = action.payload.user?._id;
-            state.user!.last_name = action.payload.user?.last_name;
-            state.user!.email = action.payload.user?.email;
+            if(state.user?.first_name){
+                state.user!.first_name = action.payload.user?.first_name;
+            }
+            if(state.user?.last_name){
+                state.user!.last_name = action.payload.user?.last_name;
+            }
+            if(state.user?._id){
+                state.user._id = action.payload.user?._id;
+            }
+            if(state.user?.email){
+                state.user.email = action.payload.user?.email;
+            }
         })
         builder.addCase(get_identity.rejected, () => {
             console.log("error")
@@ -52,6 +60,6 @@ export const user_slice = createSlice({
     }
 })
 
-export const { set_user } = user_slice.actions;
+export const { set_account } = account_slice.actions;
 
-export const getUserSelector = (state: RootState) => state.user;
+export const getAccountSelector = (state: RootState) => state.account;

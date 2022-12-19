@@ -3,7 +3,7 @@ import { IFormModel, IModel } from "./model";
 import *as yup from 'yup';
 import axios from "axios";
 import { useAppDispatch } from "../../Redux/redux-hooks";
-import { set_user } from "../../Redux/reducers/signin-reducer";
+import { set_account } from "../../Redux/reducers/signin-reducer";
 import { toast } from "react-toastify";
 import { route_names } from "../../Routes/route-names";
 
@@ -34,7 +34,7 @@ export const useContainer = (): IFormModel => {
             } as IModel
         })
             .then((response) => {
-                dispatch(set_user({
+                dispatch(set_account({
                     token: response.data.token
                 }))
             })

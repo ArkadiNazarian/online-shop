@@ -4,12 +4,12 @@ import { routes } from './Routes/routes';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getUserSelector, get_identity } from './Redux/reducers/signin-reducer';
+import { getAccountSelector, get_identity } from './Redux/reducers/signin-reducer';
 import { useAppDispatch } from './Redux/redux-hooks';
 import { PrivateRoutes } from './customroutes';
 
 export function App() {
-  const token = useSelector(getUserSelector);
+  const token = useSelector(getAccountSelector);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

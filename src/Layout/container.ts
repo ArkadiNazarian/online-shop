@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { getUserSelector } from "../Redux/reducers/signin-reducer";
+import { getAccountSelector } from "../Redux/reducers/signin-reducer";
 import { route_names } from "../Routes/route-names";
 import { IModel } from "./model";
 
 export const useContainer = (): IModel => {
-    const data = useSelector(getUserSelector);
+    const data = useSelector(getAccountSelector);
     const app_routes = route_names();
 
     const [show_items, set_show_items] = useState(false);
