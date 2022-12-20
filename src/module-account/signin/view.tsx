@@ -7,7 +7,7 @@ export const View = (props: IFormModel) => (
         <div className="tw-col-start-1 tw-bg-custom_background">
             <div className="tw-h-screen tw-flex-col tw-flex tw-justify-center tw-items-center">
                 <div className="tw-bg-custom_gray tw-w-96 tw-flex tw-flex-col tw-items-center tw-border-none tw-rounded-3xl">
-                    <p className="tw-text-custom_white tw-text-2xl">Sign In</p>
+                    <p className="tw-text-custom_white tw-text-2xl" data-testid="signin-literal">Sign In</p>
                     <form onSubmit={props.action_submit}>
                         <div className="tw-relative">
                             <input
