@@ -1,5 +1,6 @@
 import { SignIn } from '../module-account/signin';
 import { Signup } from '../module-account/signup';
+import { Home } from '../module-home/view';
 import { route_names } from './route-names';
 
 
@@ -23,8 +24,8 @@ export const routes = () => {
 
     const private_routes = [
         {
-            path: app_routes.dashboard,
-            component: <div>helllo</div>
+            path: app_routes.home,
+            component: <Home/>
         }
     ]
 

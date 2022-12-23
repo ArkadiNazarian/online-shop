@@ -8,8 +8,8 @@ describe("testing functionality of sign up", () => {
     })
 
     it("check the fields", () => {
-        const first_name_lable = screen.getByTestId("first_name-lable");
-        expect(first_name_lable).toBeInTheDocument();
+        const first_name_label = screen.getByTestId("first_name-label");
+        expect(first_name_label).toBeInTheDocument();
 
         const first_name_input = screen.getByTestId("first_name-input");
         expect(first_name_input).toBeInTheDocument();

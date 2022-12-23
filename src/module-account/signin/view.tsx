@@ -37,7 +37,7 @@ export const View = (props: IFormModel) => (
                         </div>
 
                         <button type="submit" className="tw-mt-8 tw-bg-custom_yellow tw-border-none tw-font-medium tw-rounded-lg tw-text-sm tw-w-44  tw-px-5 tw-py-2.5 tw-text-center ">Sign Up</button>
-                        <p className="tw-text-custom_white tw-text-base">Don't have an account?<Link to={props.sign_up} className="tw-text-base tw-text-custom_yellow tw-ml-1">Singn In here</Link></p>
+                        <p className="tw-text-custom_white tw-text-base">Don't have an account?<Link to={props.sign_up} className="tw-text-base tw-text-custom_yellow tw-ml-1">Singn Up here</Link></p>
                         <ToastContainer />
                     </form>
                 </div>

@@ -15,5 +15,5 @@ export const LegalRoutes = () => {
     const user_data = useSelector(getAccountSelector);
     const route = route_names();
 
-    return user_data.user?._id ? <Navigate to={route.dashboard} /> : <Outlet />
+    return user_data.user?._id ? <Navigate to={route.home} /> : <Outlet />
 }
