@@ -18,7 +18,7 @@ export const useContainer = (): IFormModel => {
     } as IModel;
 
     const validation_schema = yup.object().shape({
-        email: yup.string().required("This field is required"),
+        email: yup.string().email("Invalid email format").required("This field is required"),
         password: yup.string().min(8).required("This field is required")
     });
 

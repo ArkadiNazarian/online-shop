@@ -19,7 +19,7 @@ export const View = (props: IFormModel) => (
                                 onChange={props.handleChange}
                                 onBlur={props.handleBlur}
                             />
-                            <label htmlFor="email" className={`tw-text-custom_background ${props.form_data.email ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>First name</label>
+                            <label htmlFor="email" className={`tw-text-custom_background ${props.form_data.email ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Email</label>
                             {props.form_errors.email && <p className="tw-text-custom_green">{props.form_errors.email}</p>}
                         </div>
                         <div className="tw-relative tw-mt-8">
@@ -32,7 +32,7 @@ export const View = (props: IFormModel) => (
                                 onChange={props.handleChange}
                                 onBlur={props.handleBlur}
                             />
-                            <label htmlFor="password" className={`tw-text-custom_background ${props.form_data.password ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Last name</label>
+                            <label htmlFor="password" className={`tw-text-custom_background ${props.form_data.password ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Password</label>
                             {props.form_errors.password && <p className="tw-text-custom_green">{props.form_errors.password}</p>}
                         </div>
 
