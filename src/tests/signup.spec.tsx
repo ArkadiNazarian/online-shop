@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react"
-import { Signup } from "../module-account/signup"
+import { Signup } from "../Modules/module-account/signup/index"
 import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom";
 
@@ -48,16 +48,44 @@ describe("testing functionality of sign up", () => {
         expect(submit_button).toBeInTheDocument();
     })
 
-    it("required inputs' errors", async () => {
+    it("required inputs' error messages", async () => {
 
         const submit_button = screen.getByTestId("submit-button");
         
-        userEvent.click(submit_button)
+        userEvent.click(submit_button);
         await waitFor(() => {
             expect(screen.getByTestId("first_name-error")).toBeInTheDocument();
             expect(screen.getByTestId("last_name-error")).toBeInTheDocument();
             expect(screen.getByTestId("email-error")).toBeInTheDocument();
             expect(screen.getByTestId("password-error")).toBeInTheDocument();
+        })
+
+    })
+
+    it("invalid email address error message", async () => {
+
+        const email_input = screen.getByTestId("email-input");
+        userEvent.type(email_input,"email");
+
+        const submit_button = screen.getByTestId("submit-button");
+        
+        userEvent.click(submit_button);
+        await waitFor(() => {
+            expect(screen.getByText("Invalid email format")).toBeInTheDocument();
+        })
+
+    })
+ 
+    it("short password error message", async () => {
+
+        const password_input = screen.getByTestId("password-input");
+        userEvent.type(password_input,"123");
+
+        const submit_button = screen.getByTestId("submit-button");
+        
+        userEvent.click(submit_button);
+        await waitFor(() => {
+            expect(screen.getByText("Too short")).toBeInTheDocument();
         })
 
     })

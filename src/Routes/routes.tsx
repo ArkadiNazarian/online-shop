@@ -1,6 +1,6 @@
-import { SignIn } from '../module-account/signin';
-import { Signup } from '../module-account/signup';
-import { Home } from '../module-home/view';
+import { SignIn } from '../Modules/module-account/signin';
+import { Signup } from '../Modules/module-account/signup';
+import { Home } from '../Modules/module-home/view';
 import { route_names } from './route-names';
 
 
