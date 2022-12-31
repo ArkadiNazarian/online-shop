@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { account_slice } from "./reducers/signin-reducer";
+import { account_slice } from "../Modules/module-account/signin/redux/signin-reducer";
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 
@@ -19,7 +19,7 @@ export const store = configureStore({
     getDefaultMiddleware({
         immutableCheck: false,
         serializableCheck: false,
-        thunk: true,
+        thunk: true
     })
 })
 

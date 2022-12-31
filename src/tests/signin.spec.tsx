@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react"
-import { Signup } from "../Modules/module-account/signup/component/index"
 import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom"
+import { SignIn } from "../Modules/module-account/signin/component"
 
 const mockedUsedNavigate = jest.fn();
 
@@ -10,27 +10,16 @@ jest.mock("react-router-dom", () => ({
     useNavigate: () => mockedUsedNavigate
 }));
 
-describe("testing functionality of sign up", () => {
+describe("testing functionality of sign ip", () => {
 
     beforeEach(() => {
         render(
             <BrowserRouter>
-                <Signup />
+                <SignIn />
             </BrowserRouter>);
     })
 
     it("check the fields", () => {
-        const first_name_label = screen.getByTestId("first_name-label");
-        expect(first_name_label).toBeInTheDocument();
-
-        const first_name_input = screen.getByTestId("first_name-input");
-        expect(first_name_input).toBeInTheDocument();
-
-        const last_name_label = screen.getByTestId("last_name-label");
-        expect(last_name_label).toBeInTheDocument();
-
-        const last_name_input = screen.getByTestId("last_name-input");
-        expect(last_name_input).toBeInTheDocument();
 
         const email_label = screen.getByTestId("email-label");
         expect(email_label).toBeInTheDocument();
@@ -104,10 +93,8 @@ describe("testing functionality of sign up", () => {
         const submit_button = screen.getByTestId("submit-button");
         
         userEvent.click(submit_button);
-        
+       
         await waitFor(() => {
-            expect(screen.queryByTestId("first_name-error")).not.toBeInTheDocument()
-            expect(screen.queryByTestId("last_name-error")).not.toBeInTheDocument();
             expect(screen.queryByTestId("email-error")).not.toBeInTheDocument();
             expect(screen.queryByTestId("password-error")).not.toBeInTheDocument();
         })

@@ -10,7 +10,9 @@ export interface IFormModel {
     form_data: IModel,
     form_errors: FormikErrors<IModel>,
     handleChange: (e: any) => void;
-    sign_up:string;
-    handleBlur:any;
+    sign_up: string;
+    handleBlur: any;
+    handler_onView_password: () => void;
+    password_visible: boolean;
 }
 

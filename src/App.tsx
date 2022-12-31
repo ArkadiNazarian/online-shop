@@ -4,9 +4,9 @@ import { routes } from './Routes/routes';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getAccountSelector, get_identity } from './Redux/reducers/signin-reducer';
+import { getAccountSelector, get_identity } from './Modules/module-account/signin/redux/signin-reducer';
 import { useAppDispatch } from './Redux/redux-hooks';
-import { LegalRoutes, PrivateRoutes } from './Routes/custom-routes';
+import { Routes as PublicRoutes, PrivateRoutes } from './Routes/custom-routes';
 
 export function App() {
   const token = useSelector(getAccountSelector);
@@ -31,7 +31,7 @@ export function App() {
               ))
             }
           </Route>
-          <Route element={<LegalRoutes />}>
+          <Route element={<PublicRoutes />}>
             {
               app_routes.public_routes.map((value, index) => (
                 <Route path={value.path} element={value.component} key={index} />

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { getAccountSelector, sign_out } from "../Redux/reducers/signin-reducer";
+import { getAccountSelector, sign_out } from "../Modules/module-account/signin/redux/signin-reducer";
 import { useAppDispatch } from "../Redux/redux-hooks";
 import { route_names } from "../Routes/route-names";
 import { IModel } from "./model";

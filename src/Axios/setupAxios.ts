@@ -1,4 +1,4 @@
-import { sign_out } from "../Redux/reducers/signin-reducer";
+import { sign_out } from "../Modules/module-account/signin/redux/signin-reducer";
 import { useAppDispatch } from "../Redux/redux-hooks";
 
 export default function setupAxios(axios: any, store: any) {

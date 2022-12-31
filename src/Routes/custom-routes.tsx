@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Outlet, Navigate } from 'react-router-dom';
-import { getAccountSelector } from '../Redux/reducers/signin-reducer';
+import { getAccountSelector } from '../Modules/module-account/signin/redux/signin-reducer';
 import { route_names } from './route-names';
 
 export const PrivateRoutes = () => {
@@ -11,7 +11,7 @@ export const PrivateRoutes = () => {
     return user_data.user?._id ? <Outlet /> : <Navigate to={route.signin_path} />
 }
 
-export const LegalRoutes = () => {
+export const Routes = () => {
     const user_data = useSelector(getAccountSelector);
     const route = route_names();
 

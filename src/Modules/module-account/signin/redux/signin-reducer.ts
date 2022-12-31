@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { axios_config } from '../../Axios/axios-config';
-import { RootState } from '../store';
+import { axios_config } from '../../../../Axios/axios-config';
+import { RootState } from '../../../../Redux/store';
 
-interface IStoreModel {
+export interface IStoreModel {
     token: string;
     user?: {
         _id?: string;
