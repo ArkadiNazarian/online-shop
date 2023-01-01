@@ -1,8 +1,8 @@
 import { useContainer } from "./container"
-import { IModel } from "./model";
+import { IProps } from "./model";
 import { View } from "./view"
 
-export const ResetPassword = (value:IModel) => {
+export const ResetPassword = (value:IProps) => {
     const props = useContainer(value);
     return <View {...props}/>
 }

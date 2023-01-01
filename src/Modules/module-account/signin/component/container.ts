@@ -15,10 +15,10 @@ export const useContainer = (): IFormModel => {
 
     const [password_visible, set_password_visible] = useState<boolean>(false);
 
-    const initial_values = {
+    const initial_values: IModel = {
         email: "",
         password: ""
-    } as IModel;
+    };
 
     const validation_schema = yup.object().shape({
         email: yup.string().email("Invalid email format").required("This field is required"),
