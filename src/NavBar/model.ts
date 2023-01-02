@@ -1,5 +1,6 @@
 export interface IModel {
-    sign_up: string;
     first_name?: string;
+    last_name?: string;
     action_logout: () => void;
+    handler_onView_account: () => void;
 }

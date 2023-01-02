@@ -1,6 +1,7 @@
 import { SignIn } from '../Modules/module-account/signin/component';
 import { Signup } from '../Modules/module-account/signup/component';
-import { Home } from '../Modules/module-home/view';
+import { Dashboard } from '../Modules/module-dashboard/view';
+import { ViewAccount } from '../Modules/module-user/view-account';
 import { route_names } from './route-names';
 
 
@@ -24,8 +25,12 @@ export const routes = () => {
 
     const private_routes = [
         {
-            path: app_routes.home,
-            component: <Home/>
+            path: app_routes.dashboard,
+            component: <Dashboard/>
+        },
+        {
+            path: app_routes.view_account,
+            component: <ViewAccount/>
         }
     ]
 

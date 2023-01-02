@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 export const useContainer = (): IFormModel => {
 
-    const navigator = useNavigate()
+    const navigator = useNavigate();
     const app_routes = route_names();
 
     const initial_values = {
@@ -38,10 +38,10 @@ export const useContainer = (): IFormModel => {
                 password: values.password
             } as IModel
         })
-            .then((response) => {
+            .then(() => {
                 navigator(app_routes.signin_path)
             })
-            .catch((response) => {
+            .catch(() => {
                 toast.error('Already Signed Up', {
                     position: toast.POSITION.TOP_RIGHT
                 });

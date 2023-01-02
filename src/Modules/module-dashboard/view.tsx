@@ -1,5 +1,5 @@
 import { NavBar } from "../../NavBar";
 
-export const Home = () => (
+export const Dashboard = () => (
     <NavBar />
 )

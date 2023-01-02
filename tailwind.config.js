@@ -12,7 +12,7 @@ module.exports = {
       'custom_blue':'#112a81',
       'custom_purple':'#F9E8A0',
       'custom_green':'#0cf2a6',
-      'button_border_color':'#affae3',
+      'custom_light_green':'#affae3',
       'custom_background':'#f9ada0',
       'custom_black':'#000000'
     },

@@ -41,8 +41,7 @@ export const useContainer = (): IFormModel => {
                     token: response.data.token
                 }))
             })
-            .catch((response) => {
-                console.log(response)
+            .catch(() => {
                 toast.error('Wrong Email or Password', {
                     position: toast.POSITION.TOP_RIGHT
                 });

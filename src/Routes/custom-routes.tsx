@@ -15,5 +15,5 @@ export const Routes = () => {
     const user_data = useSelector(getAccountSelector);
     const route = route_names();
 
-    return user_data.user?._id ? <Navigate to={route.home} /> : <Outlet />
+    return user_data.user?._id ? <Navigate to={route.default_path} /> : <Outlet />
 }

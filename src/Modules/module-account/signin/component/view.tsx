@@ -38,7 +38,7 @@ export const View = (props: IFormModel) => (
                             <label htmlFor="password" data-testid="password-label" className={`tw-text-custom_background ${props.form_data.password ? 'tw--top-4 tw-text-sm' : 'peer-focus:tw-text-sm peer-focus:tw--top-4 tw-text-lg'} tw-absolute tw-left-0 tw-transition-all`}>Password</label>
                             {props.form_errors.password && <p className="tw-text-custom_green">{props.form_errors.password}</p>}
                         </div>
-                        <button type="submit" data-testid="submit-button" className="tw-mt-8 tw-bg-custom_yellow tw-border-none tw-font-medium tw-rounded-lg tw-text-sm tw-w-44  tw-px-5 tw-py-2.5 tw-text-center ">Sign Up</button>
+                        <button type="submit" data-testid="submit-button" className="tw-mt-8 tw-bg-custom_yellow tw-border-none tw-font-medium tw-rounded-lg tw-text-sm tw-w-44  tw-px-5 tw-py-2.5 tw-text-center ">Sign In</button>
                         <p className="tw-text-custom_white tw-text-base">Don't have an account?<Link to={props.sign_up} className="tw-text-base tw-text-custom_yellow tw-ml-1">Singn Up here</Link></p>
                         <p className="tw-text-custom_white tw-text-base" onClick={() => props.handler_onView_password()}>Forgot Password ? Click here </p>
                     </form>
