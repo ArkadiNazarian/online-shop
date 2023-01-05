@@ -17,10 +17,7 @@ export const routes = () => {
             path: app_routes.signin_path,
             component: <SignIn />
         },
-        {
-            path: app_routes.default_path,
-            component: <Signup />
-        }
+        
     ]
 
     const private_routes = [
@@ -31,6 +28,10 @@ export const routes = () => {
         {
             path: app_routes.view_account,
             component: <ViewAccount/>
+        },
+        {
+            path: app_routes.default_path,
+            component: <Dashboard />
         }
     ]
 
