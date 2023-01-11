@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { ResetPassword } from "../../reset-password/index";
 import { IFormModel } from "./model";
 
 export const View = (props: IFormModel) => (
@@ -40,9 +39,8 @@ export const View = (props: IFormModel) => (
                         </div>
                         <button type="submit" data-testid="submit-button" className="tw-mt-8 tw-bg-custom_yellow tw-border-none tw-font-medium tw-rounded-lg tw-text-sm tw-w-44  tw-px-5 tw-py-2.5 tw-text-center ">Sign In</button>
                         <p className="tw-text-custom_white tw-text-base">Don't have an account?<Link to={props.sign_up} className="tw-text-base tw-text-custom_yellow tw-ml-1">Singn Up here</Link></p>
-                        <p className="tw-text-custom_white tw-text-base" onClick={() => props.handler_onView_password()}>Forgot Password ? Click here </p>
+                        <p className="tw-text-custom_white tw-text-base" >Forgot Password ? Click here <Link to={props.forgot_password} className="tw-text-base tw-text-custom_yellow tw-ml-1">Click here</Link></p>
                     </form>
-                    <ResetPassword password_modal={props.password_visible} handler_onView_password={props.handler_onView_password} />
                     <ToastContainer />
                 </div>
             </div>

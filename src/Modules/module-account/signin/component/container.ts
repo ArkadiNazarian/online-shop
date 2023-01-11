@@ -6,14 +6,11 @@ import { useAppDispatch } from "../../../../Redux/redux-hooks";
 import { set_token } from "../redux/signin-reducer";
 import { toast } from "react-toastify";
 import { route_names } from "../../../../Routes/route-names";
-import { useState } from "react";
 
 export const useContainer = (): IFormModel => {
 
     const dispatch = useAppDispatch();
     const app_routes = route_names();
-
-    const [password_visible, set_password_visible] = useState<boolean>(false);
 
     const initial_values: IModel = {
         email: "",
@@ -48,10 +45,6 @@ export const useContainer = (): IFormModel => {
             });
     }
 
-    const handler_onView_password = () => {
-        set_password_visible(password_visible => !password_visible)
-    }
-
     const formik = useFormik({
         initialValues: initial_values,
         validationSchema: validation_schema,
@@ -70,7 +63,6 @@ export const useContainer = (): IFormModel => {
         handleChange: formik.handleChange,
         sign_up: app_routes.signup_path,
         handleBlur: formik.handleBlur,
-        handler_onView_password,
-        password_visible
+        forgot_password:app_routes.forgot_password
     }
 }

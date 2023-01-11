@@ -11,8 +11,7 @@ export interface IFormModel {
     form_errors: FormikErrors<IModel>,
     handleChange: (e: any) => void;
     sign_up: string;
+    forgot_password: string;
     handleBlur: any;
-    handler_onView_password: () => void;
-    password_visible: boolean;
 }
 

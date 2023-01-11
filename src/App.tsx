@@ -9,13 +9,13 @@ import { useAppDispatch } from './Redux/redux-hooks';
 import { Routes as PublicRoutes, PrivateRoutes } from './Routes/custom-routes';
 
 export function App() {
-  const token = useSelector(getAccountSelector);
+  const user_data = useSelector(getAccountSelector);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (!token.token) return
+    if (!user_data.token) return
     dispatch(get_identity())
-  }, [dispatch, token.token])
+  }, [dispatch, user_data.token])
 
   const app_routes = routes();
 
@@ -23,7 +23,6 @@ export function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-
           <Route element={<PrivateRoutes />}>
             {
               app_routes.private_routes.map((value, index) => (

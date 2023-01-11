@@ -1,3 +1,4 @@
+import { ForgotPassword } from '../Modules/module-account/forgot-password';
 import { SignIn } from '../Modules/module-account/signin/component';
 import { Signup } from '../Modules/module-account/signup/component';
 import { Dashboard } from '../Modules/module-dashboard/view';
@@ -17,6 +18,10 @@ export const routes = () => {
             path: app_routes.signin_path,
             component: <SignIn />
         },
+        {
+            path: app_routes.forgot_password,
+            component: <ForgotPassword />
+        }
         
     ]
 
