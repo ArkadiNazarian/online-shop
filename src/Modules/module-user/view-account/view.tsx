@@ -10,7 +10,6 @@ export const View = (props: IFormModel) => (
                                 <div className="tw-mr-8">
                                         <p className={props.on_account ? "tw-bg-custom_light_green tw-text-xl tw-text-custom_gray tw-cursor-pointer tw-mt-8 tw-pl-[6px] tw-rounded-lg" : "tw-mt-8 tw-text-custom_white tw-cursor-pointer tw-text-xl"} onClick={() => props.handler_onView_account()}>Account</p>
                                         <p className={props.on_address ? "tw-bg-custom_light_green tw-text-xl tw-text-custom_gray tw-cursor-pointer tw-mt-8 tw-pl-[6px] tw-rounded-lg" : "tw-mt-8 tw-text-custom_white tw-cursor-pointer tw-text-xl"} onClick={() => props.handler_onView_address()}>Address</p>
-                                        <p className={props.on_password ? "tw-bg-custom_light_green tw-text-xl tw-text-custom_gray tw-cursor-pointer tw-mt-8 tw-pl-[6px] tw-rounded-lg" : "tw-mt-8 tw-text-custom_white tw-cursor-pointer tw-text-xl"} onClick={() => props.handler_onView_password()}>Password</p>
                                 </div>
                                 <div className={props.on_account ? "" : "tw-hidden"}>
                                         <div className="tw-flex tw-flex-row tw-items-center tw-mb-[-1rem]">
@@ -26,11 +25,11 @@ export const View = (props: IFormModel) => (
                                                 <p className="tw-text-base tw-text-custom_white">{props.email}</p>
                                         </div>
                                 </div>
-                                <div className={props.on_address ? "" : "tw-hidden"}>
+                                <div className={props.on_address ? "tw-w-full tw-text-custom_light_green" : "tw-hidden"}>
                                         <p>Please add your address</p>
                                 </div>
                                 <div className="tw-w-full tw-grid tw-grid-cols-3">
-                                        <AiOutlineEdit className="tw-col-start-4 tw-mt-[-5rem] tw-text-2xl tw-cursor-pointer tw-text-custom_white" />
+                                        <AiOutlineEdit onClick={()=>props.handler_onEdit()} className="tw-col-start-4 tw-mt-[-4rem] tw-text-2xl tw-cursor-pointer tw-text-custom_white" />
                                 </div>
                         </div>
                 </div>

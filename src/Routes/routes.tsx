@@ -2,6 +2,7 @@ import { ForgotPassword } from '../Modules/module-account/forgot-password';
 import { SignIn } from '../Modules/module-account/signin/component';
 import { Signup } from '../Modules/module-account/signup/component';
 import { Dashboard } from '../Modules/module-dashboard/view';
+import { EditAccount } from '../Modules/module-user/edit-account';
 import { ViewAccount } from '../Modules/module-user/view-account';
 import { route_names } from './route-names';
 
@@ -23,7 +24,7 @@ export const routes = () => {
             component: <ForgotPassword />
         }
         
-    ]
+    ];
 
     const private_routes = [
         {
@@ -37,8 +38,12 @@ export const routes = () => {
         {
             path: app_routes.default_path,
             component: <Dashboard />
+        },
+        {
+            path: app_routes.edit_account,
+            component: <EditAccount />
         }
-    ]
+    ];
 
     return {
         public_routes,

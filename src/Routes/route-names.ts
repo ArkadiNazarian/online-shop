@@ -3,7 +3,8 @@ export const route_names = () => {
     const signup_path = "/auth/signup";
     const default_path = "*";
     const dashboard="/dashboard";
-    const view_account="/dashboard/view-account";
+    const view_account="/dashboard/account/view";
+    const edit_account = "/dashboard/account/edit";
     const forgot_password="/auth/forgot-password";
 
     return {
@@ -12,6 +13,7 @@ export const route_names = () => {
         default_path,
         dashboard,
         view_account,
-        forgot_password
+        forgot_password,
+        edit_account
     }
-}
+};
