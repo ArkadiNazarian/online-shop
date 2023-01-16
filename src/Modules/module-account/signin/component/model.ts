@@ -12,6 +12,6 @@ export interface IFormModel {
     handleChange: (e: any) => void;
     sign_up: string;
     forgot_password: string;
-    handleBlur: any;
+    handleBlur: (e: any) => void;
 }
 

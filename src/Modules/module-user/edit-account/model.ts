@@ -12,5 +12,5 @@ export interface IFormModel {
     form_data: IModel;
     form_errors: FormikErrors<IModel>;
     handleChange: (e: any) => void;
-    handleBlur: any;
+    handleBlur: (e: any) => void;
 }
