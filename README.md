@@ -24,10 +24,10 @@
 - TDD
 
 # Features
-> Sign In
-> Sign Up
-> Log Out
-> Reset password
-> Edit profile
+- Sign In
+- Sign Up
+- Log Out
+- Reset password
+- Edit profile
 
 The backend part of this project : https://github.com/saanny/shop-back-end
