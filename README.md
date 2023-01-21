@@ -1,4 +1,4 @@
-# Digno Shop 
+# Dingo Shop 
 
 # Technology stack
 - ReactJS
