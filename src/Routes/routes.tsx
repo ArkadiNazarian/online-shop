@@ -1,4 +1,5 @@
 import { ForgotPassword } from '../Modules/module-account/forgot-password';
+import { ResetPassword } from '../Modules/module-account/reset-password';
 import { SignIn } from '../Modules/module-account/signin/component';
 import { Signup } from '../Modules/module-account/signup/component';
 import { Dashboard } from '../Modules/module-dashboard/view';
@@ -22,18 +23,21 @@ export const routes = () => {
         {
             path: app_routes.forgot_password,
             component: <ForgotPassword />
+        },
+        {
+            path: app_routes.reset_password,
+            component: <ResetPassword />
         }
-        
     ];
 
     const private_routes = [
         {
             path: app_routes.dashboard,
-            component: <Dashboard/>
+            component: <Dashboard />
         },
         {
             path: app_routes.view_account,
-            component: <ViewAccount/>
+            component: <ViewAccount />
         },
         {
             path: app_routes.default_path,

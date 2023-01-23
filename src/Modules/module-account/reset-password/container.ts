@@ -10,34 +10,17 @@ export const useContainer = (): IFormModel => {
 
     const app_routes = route_names();
     const navigator = useNavigate();
-
+    
     const initial_values: IModel = {
-        email: "",
+        password: "",
     };
 
     const validation_schema = yup.object().shape({
-        email: yup.string().email("Invalid email format").required("This field is required")
+        password: yup.string().min(8).required("This field is required")
     });
 
     const action_submit = (values: IModel) => {
-        axios({
-            method: "Post",
-            url: `${process.env.REACT_APP_API_URL}/auth/forgot-password`,
-            responseType: "json",
-            data: {
-                email: values.email
-            } as IModel
-        })
-            .then(() => {
-                toast.success("Please check your email's inbox", {
-                    position: toast.POSITION.TOP_CENTER
-                });
-            })
-            .catch(() => {
-                toast.error('Email not found', {
-                    position: toast.POSITION.TOP_RIGHT
-                });
-            });
+        
     }
 
     const formik = useFormik({
@@ -47,7 +30,7 @@ export const useContainer = (): IFormModel => {
     });
 
     const form_errors: FormikErrors<IModel> = {
-        email: formik.submitCount || formik.touched.email ? formik.errors.email : "",
+        password: formik.submitCount || formik.touched.password ? formik.errors.password : "",
     };
 
     return {
@@ -55,7 +38,6 @@ export const useContainer = (): IFormModel => {
         form_data: formik.values,
         form_errors: form_errors,
         handleChange: formik.handleChange,
-        sign_in: app_routes.signin_path,
         handleBlur: formik.handleBlur
     }
 }
