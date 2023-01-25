@@ -4,13 +4,14 @@ import *as yup from 'yup';
 import { route_names } from "../../../Routes/route-names";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const useContainer = (): IFormModel => {
 
     const app_routes = route_names();
     const navigator = useNavigate();
-    
+    const { token } = useParams();
+
     const initial_values: IModel = {
         password: "",
     };
@@ -20,7 +21,22 @@ export const useContainer = (): IFormModel => {
     });
 
     const action_submit = (values: IModel) => {
-        
+        axios({
+            method: "Post",
+            url: `${process.env.REACT_APP_API_URL}/auth/rest-password/${token}`,
+            responseType: "json",
+            data: {
+                password: values.password
+            } as IModel
+        })
+            .then(() => {
+                navigator(app_routes.signin_path)
+            })
+            .catch(() => {
+                toast.error('Error', {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            })
     }
 
     const formik = useFormik({

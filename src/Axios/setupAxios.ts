@@ -4,12 +4,10 @@ import { useAppDispatch } from "../Redux/redux-hooks";
 export default function setupAxios(axios: any, store: any) {
   axios.interceptors.request.use(
     (config: any) => {
-      const {
-        account: { token },
-      } = store.getState();
+     const user_data=store.getState()
 
-      if (token) {
-        config.headers.authorization = `Bearer ${token}`;
+      if (user_data.account.token) {
+        config.headers.authorization = `Bearer ${user_data.account.token}`;
       }
 
       return config;
