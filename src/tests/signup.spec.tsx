@@ -114,4 +114,15 @@ describe("testing functionality of sign up", () => {
 
     })
 
+    it("navigate to signin",async()=>{
+
+        const goto_signin = screen.getByTestId("signin");
+        userEvent.click(goto_signin);
+
+        await waitFor(() => {
+            expect(screen.getByTestId("email-input")).toBeInTheDocument()
+            expect(screen.getByTestId("password-input")).toBeInTheDocument();
+        })
+    })
+
 })

@@ -15,7 +15,7 @@ export const View = (props: IFormModel) => (
                         <Input label="Email" name="email" type="email" error={props.form_errors.email!} handleBlur={props.handleBlur} handleChange={props.handleChange} value={props.form_data.email!} className="tw-mt-8" input_data-testid="email-input" label_data-testid="email-label" error_data-testid="email-error"/>
                         <Input label="Password" name="password" type="password" error={props.form_errors.password!} handleBlur={props.handleBlur} handleChange={props.handleChange} value={props.form_data.password!} className="tw-mt-8" input_data-testid="password-input" label_data-testid="password-label" error_data-testid="password-error"/>
                         <SubmitButton text="Sign Up" onClick={() => props.action_submit()} className="tw-w-44 tw-mt-8" data-testid="submit-button"/>
-                        <p className="tw-text-custom_white tw-text-base">Have already an account?<Link to={props.sign_in} className="tw-text-base tw-text-custom_yellow tw-ml-1">Singn Up here</Link></p>
+                        <p className="tw-text-custom_white tw-text-base">Have already an account?<Link to={props.sign_in} className="tw-text-base tw-text-custom_yellow tw-ml-1" data-testid="signin">Singn Up here</Link></p>
                         <ToastContainer />
                     </form>
                 </div>
