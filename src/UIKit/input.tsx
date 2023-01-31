@@ -16,7 +16,7 @@ export const Input = (props: IProps) => (
     <div className={`${props.className} tw-relative`}>
         <input
             type={props.type}
-            className="tw-py-1 tw-mt-1 tw-w-64 tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
+            className="tw-py-1 tw-mt-1 tw-w-64 tw-text-custom_white tw-border-t-0 tw-bg-custom_gray tw-border-l-0 tw-border-r-0 tw-border-b-custom_black tw-border-b focus:tw-outline-none tw-transition-colors tw-peer"
             name={props.name}
             id={props.name}
             value={props.value}

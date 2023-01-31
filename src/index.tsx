@@ -9,6 +9,7 @@ import { axios_config } from './Axios/axios-config';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import persistStore from 'redux-persist/es/persistStore';
+import { ToastContainer } from "react-toastify";
 
 setupAxios(axios_config, store);
 
@@ -21,6 +22,7 @@ root.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <App />
+      <ToastContainer/>
     </PersistGate>
   </Provider>
 );

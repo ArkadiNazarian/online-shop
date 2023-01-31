@@ -5,12 +5,15 @@ import { route_names } from "../../../Routes/route-names";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
 
 export const useContainer = (): IFormModel => {
 
     const app_routes = route_names();
     const navigator = useNavigate();
     const { token } = useParams();
+
+    const [loading, set_loading] = useState<boolean>(false);
 
     const initial_values: IModel = {
         password: "",
@@ -21,6 +24,7 @@ export const useContainer = (): IFormModel => {
     });
 
     const action_submit = (values: IModel) => {
+        set_loading(true);
         axios({
             method: "Post",
             url: `${process.env.REACT_APP_API_URL}/auth/rest-password/${token}`,
@@ -30,9 +34,11 @@ export const useContainer = (): IFormModel => {
             } as IModel
         })
             .then(() => {
+                set_loading(false);
                 navigator(app_routes.signin_path)
             })
             .catch(() => {
+                set_loading(true);
                 toast.error('Error', {
                     position: toast.POSITION.TOP_RIGHT
                 });
@@ -54,6 +60,7 @@ export const useContainer = (): IFormModel => {
         form_data: formik.values,
         form_errors: form_errors,
         handleChange: formik.handleChange,
-        handleBlur: formik.handleBlur
+        handleBlur: formik.handleBlur,
+        loading
     }
 }

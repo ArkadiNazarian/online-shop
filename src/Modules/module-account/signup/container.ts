@@ -5,11 +5,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { route_names } from "../../../Routes/route-names";
 import { toast } from "react-toastify";
+import { useState } from "react";
 
 export const useContainer = (): IFormModel => {
 
     const navigator = useNavigate();
     const app_routes = route_names();
+
+    const [loading, set_loading] = useState<boolean>(false);
 
     const initial_values = {
         first_name: "",
@@ -20,13 +23,13 @@ export const useContainer = (): IFormModel => {
 
     const validation_schema = yup.object().shape({
         email: yup.string().email("Invalid email format").required("This field is required"),
-        password: yup.string().min(8,"Too short").required("This field is required"),
+        password: yup.string().min(8, "Too short").required("This field is required"),
         first_name: yup.string().required("This field is required"),
         last_name: yup.string().required("This field is required")
     });
 
     const action_submit = (values: IModel) => {
-
+        set_loading(true);
         axios({
             method: "Post",
             url: `${process.env.REACT_APP_API_URL}/auth/register`,
@@ -39,9 +42,11 @@ export const useContainer = (): IFormModel => {
             } as IModel
         })
             .then(() => {
+                set_loading(false);
                 navigator(app_routes.signin_path)
             })
             .catch(() => {
+                set_loading(false);
                 toast.error('Already Signed Up', {
                     position: toast.POSITION.TOP_RIGHT
                 });
@@ -56,11 +61,11 @@ export const useContainer = (): IFormModel => {
     });
 
     const form_errors: FormikErrors<IModel> = {
-		email: formik.submitCount || formik.touched.email ? formik.errors.email : "",
+        email: formik.submitCount || formik.touched.email ? formik.errors.email : "",
         first_name: formik.submitCount || formik.touched.first_name ? formik.errors.first_name : "",
         last_name: formik.submitCount || formik.touched.last_name ? formik.errors.last_name : "",
         password: formik.submitCount || formik.touched.password ? formik.errors.password : ""
-	};
+    };
 
     return {
         action_submit: formik.handleSubmit,
@@ -68,6 +73,7 @@ export const useContainer = (): IFormModel => {
         form_errors: form_errors,
         handleChange: formik.handleChange,
         sign_in: app_routes.signin_path,
-        handleBlur:formik.handleBlur
+        handleBlur: formik.handleBlur,
+        loading
     }
 }

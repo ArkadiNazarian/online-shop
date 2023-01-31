@@ -5,10 +5,11 @@ export interface IModel {
 }
 
 export interface IFormModel {
-    action_submit: () => void,
-    form_data: IModel,
-    form_errors: FormikErrors<IModel>,
+    action_submit: () => void;
+    form_data: IModel;
+    form_errors: FormikErrors<IModel>;
     handleChange: (e: any) => void;
     sign_in: string;
-    handleBlur: any;
+    handleBlur: (e: any) => void;
+    loading: boolean;
 }

@@ -13,5 +13,6 @@ export interface IFormModel {
     sign_up: string;
     forgot_password: string;
     handleBlur: (e: any) => void;
+    loading: boolean;
 }
 

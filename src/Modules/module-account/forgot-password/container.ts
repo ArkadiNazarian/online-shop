@@ -5,12 +5,15 @@ import { route_names } from "../../../Routes/route-names";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const useContainer = (): IFormModel => {
 
     const app_routes = route_names();
     const navigator = useNavigate();
 
+    const [loading, set_loading] = useState<boolean>(false);
+    
     const initial_values: IModel = {
         email: "",
     };
@@ -29,11 +32,13 @@ export const useContainer = (): IFormModel => {
             } as IModel
         })
             .then(() => {
+                set_loading(true);
                 toast.success("Please check your email's inbox", {
                     position: toast.POSITION.TOP_CENTER
                 });
             })
             .catch(() => {
+                set_loading(false);
                 toast.error('Email not found', {
                     position: toast.POSITION.TOP_RIGHT
                 });
@@ -56,6 +61,7 @@ export const useContainer = (): IFormModel => {
         form_errors: form_errors,
         handleChange: formik.handleChange,
         sign_in: app_routes.signin_path,
-        handleBlur: formik.handleBlur
+        handleBlur: formik.handleBlur,
+        loading
     }
 }

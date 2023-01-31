@@ -6,12 +6,15 @@ import { useAppDispatch } from "../../../../Redux/redux-hooks";
 import { set_token } from "../redux/signin-reducer";
 import { toast } from "react-toastify";
 import { route_names } from "../../../../Routes/route-names";
+import { useState } from "react";
 
 export const useContainer = (): IFormModel => {
 
     const dispatch = useAppDispatch();
     const app_routes = route_names();
 
+    const [loading, set_loading] = useState<boolean>(false);
+    
     const initial_values: IModel = {
         email: "",
         password: ""
@@ -23,7 +26,7 @@ export const useContainer = (): IFormModel => {
     });
 
     const action_submit = (values: IModel) => {
-
+        set_loading(true);
         axios({
             method: "Post",
             url: `${process.env.REACT_APP_API_URL}/auth/login`,
@@ -37,8 +40,10 @@ export const useContainer = (): IFormModel => {
                 dispatch(set_token({
                     token: response.data.token
                 }))
+                set_loading(false);
             })
             .catch(() => {
+                set_loading(false);
                 toast.error('Wrong Email or Password', {
                     position: toast.POSITION.TOP_RIGHT
                 });
@@ -63,6 +68,7 @@ export const useContainer = (): IFormModel => {
         handleChange: formik.handleChange,
         sign_up: app_routes.signup_path,
         handleBlur: formik.handleBlur,
-        forgot_password:app_routes.forgot_password
+        forgot_password:app_routes.forgot_password,
+        loading
     }
 }
