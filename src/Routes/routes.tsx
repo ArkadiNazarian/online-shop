@@ -1,7 +1,7 @@
 import { ForgotPassword } from '../Modules/module-account/forgot-password';
 import { ResetPassword } from '../Modules/module-account/reset-password';
 import { SignIn } from '../Modules/module-account/signin/component';
-import { Signup } from '../Modules/module-account/signup/component';
+import { Signup } from '../Modules/module-account/signup';
 import { Dashboard } from '../Modules/module-dashboard/view';
 import { EditAccount } from '../Modules/module-user/edit-account';
 import { ViewAccount } from '../Modules/module-user/view-account';

@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react"
-import { Signup } from "../Modules/module-account/signup/component/index"
+import { Signup } from "../Modules/module-account/signup/index"
 import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom"
 
