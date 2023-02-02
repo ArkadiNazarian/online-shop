@@ -2,6 +2,8 @@ import { render, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom"
 import { SignIn } from "../Modules/module-account/signin/component"
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 
 const mockedUsedNavigate = jest.fn();
 
@@ -13,10 +15,15 @@ jest.mock("react-router-dom", () => ({
 describe("testing functionality of sign ip", () => {
 
     beforeEach(() => {
+        const initialState = {};
+        const mockStore = configureStore();
+        let store = mockStore(initialState);
         render(
-            <BrowserRouter>
-                <SignIn />
-            </BrowserRouter>);
+            <Provider store={store}>
+                <BrowserRouter>
+                    <SignIn />
+                </BrowserRouter>
+            </Provider>);
     })
 
     it("check the fields", () => {
@@ -40,7 +47,7 @@ describe("testing functionality of sign ip", () => {
     it("required inputs' error messages", async () => {
 
         const submit_button = screen.getByTestId("submit-button");
-        
+
         userEvent.click(submit_button);
         await waitFor(() => {
             expect(screen.getByTestId("first_name-error")).toBeInTheDocument();
@@ -54,24 +61,24 @@ describe("testing functionality of sign ip", () => {
     it("invalid email address error message", async () => {
 
         const email_input = screen.getByTestId("email-input");
-        userEvent.type(email_input,"email");
+        userEvent.type(email_input, "email");
 
         const submit_button = screen.getByTestId("submit-button");
-        
+
         userEvent.click(submit_button);
         await waitFor(() => {
             expect(screen.getByText("Invalid email format")).toBeInTheDocument();
         })
 
     })
- 
+
     it("short password error message", async () => {
 
         const password_input = screen.getByTestId("password-input");
-        userEvent.type(password_input,"123");
+        userEvent.type(password_input, "123");
 
         const submit_button = screen.getByTestId("submit-button");
-        
+
         userEvent.click(submit_button);
         await waitFor(() => {
             expect(screen.getByText("Too short")).toBeInTheDocument();
@@ -82,18 +89,18 @@ describe("testing functionality of sign ip", () => {
     it("fill input with correct data types", async () => {
 
         const first_name_input = screen.getByTestId("first_name-input");
-        userEvent.type(first_name_input,"Arkadi");
+        userEvent.type(first_name_input, "Arkadi");
         const last_name_input = screen.getByTestId("last_name-input");
-        userEvent.type(last_name_input,"Nazarian");
+        userEvent.type(last_name_input, "Nazarian");
         const email_input = screen.getByTestId("email-input");
-        userEvent.type(email_input,"example@example.com");
+        userEvent.type(email_input, "example@example.com");
         const password_input = screen.getByTestId("password-input");
-        userEvent.type(password_input,"123456789");
+        userEvent.type(password_input, "123456789");
 
         const submit_button = screen.getByTestId("submit-button");
-        
+
         userEvent.click(submit_button);
-       
+
         await waitFor(() => {
             expect(screen.queryByTestId("email-error")).not.toBeInTheDocument();
             expect(screen.queryByTestId("password-error")).not.toBeInTheDocument();

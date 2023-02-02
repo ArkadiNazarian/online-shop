@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react"
+import { act, render, screen, waitFor } from "@testing-library/react"
 import { Signup } from "../Modules/module-account/signup/index"
 import userEvent from "@testing-library/user-event"
 import { BrowserRouter } from "react-router-dom"
@@ -20,6 +20,7 @@ describe("testing functionality of sign up", () => {
     })
 
     it("check the fields", () => {
+
         const first_name_label = screen.getByTestId("first_name-label");
         expect(first_name_label).toBeInTheDocument();
 
@@ -46,12 +47,13 @@ describe("testing functionality of sign up", () => {
 
         const submit_button = screen.getByTestId("submit-button");
         expect(submit_button).toBeInTheDocument();
+
     })
 
     it("required inputs' error messages", async () => {
 
         const submit_button = screen.getByTestId("submit-button");
-        
+
         userEvent.click(submit_button);
         await waitFor(() => {
             expect(screen.getByTestId("first_name-error")).toBeInTheDocument();
@@ -65,24 +67,24 @@ describe("testing functionality of sign up", () => {
     it("invalid email address error message", async () => {
 
         const email_input = screen.getByTestId("email-input");
-        userEvent.type(email_input,"email");
+        userEvent.type(email_input, "email");
 
         const submit_button = screen.getByTestId("submit-button");
-        
+
         userEvent.click(submit_button);
         await waitFor(() => {
             expect(screen.getByText("Invalid email format")).toBeInTheDocument();
         })
 
     })
- 
+
     it("short password error message", async () => {
 
         const password_input = screen.getByTestId("password-input");
-        userEvent.type(password_input,"123");
+        userEvent.type(password_input, "123");
 
         const submit_button = screen.getByTestId("submit-button");
-        
+
         userEvent.click(submit_button);
         await waitFor(() => {
             expect(screen.getByText("Too short")).toBeInTheDocument();
@@ -91,30 +93,31 @@ describe("testing functionality of sign up", () => {
     })
 
     it("fill input with correct data types", async () => {
+        await act(async () => {
+            const first_name_input = screen.getByTestId("first_name-input");
+            userEvent.type(first_name_input, "Arkadi");
+            const last_name_input = screen.getByTestId("last_name-input");
+            userEvent.type(last_name_input, "Nazarian");
+            const email_input = screen.getByTestId("email-input");
+            userEvent.type(email_input, "example@example.com");
+            const password_input = screen.getByTestId("password-input");
+            userEvent.type(password_input, "123456789");
 
-        const first_name_input = screen.getByTestId("first_name-input");
-        userEvent.type(first_name_input,"Arkadi");
-        const last_name_input = screen.getByTestId("last_name-input");
-        userEvent.type(last_name_input,"Nazarian");
-        const email_input = screen.getByTestId("email-input");
-        userEvent.type(email_input,"example@example.com");
-        const password_input = screen.getByTestId("password-input");
-        userEvent.type(password_input,"123456789");
+            const submit_button = screen.getByTestId("submit-button");
 
-        const submit_button = screen.getByTestId("submit-button");
-        
-        userEvent.click(submit_button);
-        
-        await waitFor(() => {
-            expect(screen.queryByTestId("first_name-error")).not.toBeInTheDocument()
-            expect(screen.queryByTestId("last_name-error")).not.toBeInTheDocument();
-            expect(screen.queryByTestId("email-error")).not.toBeInTheDocument();
-            expect(screen.queryByTestId("password-error")).not.toBeInTheDocument();
+            userEvent.click(submit_button);
+
+            await waitFor(() => {
+                expect(screen.queryByTestId("first_name-error")).not.toBeInTheDocument()
+                expect(screen.queryByTestId("last_name-error")).not.toBeInTheDocument();
+                expect(screen.queryByTestId("email-error")).not.toBeInTheDocument();
+                expect(screen.queryByTestId("password-error")).not.toBeInTheDocument();
+            })
         })
 
     })
 
-    it("navigate to signin",async()=>{
+    it("navigate to signin", async () => {
 
         const goto_signin = screen.getByTestId("signin");
         userEvent.click(goto_signin);
