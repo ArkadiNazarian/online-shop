@@ -8,7 +8,7 @@ export const View = (props: IModel) => (
             <p className="tw-text-3xl tw-text-custom_yellow tw-font-bold tw-col-start-2 tw-cursor-default">Dingo Shop</p>
             <div className="tw-flex tw-flex-row tw-ml-10 tw-col-start-3 tw-mt-8">
                 <p className="tw-text-xl tw-font-semibold tw-mr-8 tw-text-custom_gray">Home</p>
-                <p className="tw-text-xl tw-font-semibold tw-text-custom_gray">Products</p>
+                <p className="tw-text-xl tw-font-semibold tw-text-custom_gray hover:tw-cursor-pointer" onClick={()=>props.handler_onView_products()}>Products</p>
             </div>
             <div className="tw-flex tw-flex-row tw-items-center tw-col-start-6">
                 <div className="tw-flex tw-flex-row tw-items-center tw-mr-3 tw-cursor-pointer tw-text-dark_purple" onClick={()=>props.handler_onView_account()}>

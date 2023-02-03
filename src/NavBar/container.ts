@@ -19,10 +19,15 @@ export const useContainer = (): IModel => {
         navigator(app_routes.view_account)
     }
 
+    const handler_onView_products = () => {
+        navigator(app_routes.products)
+    }
+
     return {
         first_name: data.user?.first_name,
         last_name: data.user?.last_name,
         action_logout,
-        handler_onView_account
+        handler_onView_account,
+        handler_onView_products
     }
 }

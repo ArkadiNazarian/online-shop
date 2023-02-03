@@ -3,6 +3,7 @@ import { ResetPassword } from '../Modules/module-account/reset-password';
 import { SignIn } from '../Modules/module-account/signin/component';
 import { Signup } from '../Modules/module-account/signup';
 import { Dashboard } from '../Modules/module-dashboard/view';
+import { Products } from '../Modules/module-products/';
 import { EditAccount } from '../Modules/module-user/edit-account';
 import { ViewAccount } from '../Modules/module-user/view-account';
 import { route_names } from './route-names';
@@ -46,6 +47,10 @@ export const routes = () => {
         {
             path: app_routes.edit_account,
             component: <EditAccount />
+        },
+        {
+            path:app_routes.products,
+            component:<Products/>
         }
     ];
 

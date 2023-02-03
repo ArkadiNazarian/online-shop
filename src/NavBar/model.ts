@@ -3,4 +3,5 @@ export interface IModel {
     last_name?: string;
     action_logout: () => void;
     handler_onView_account: () => void;
+    handler_onView_products: () => void;
 }

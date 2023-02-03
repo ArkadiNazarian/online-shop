@@ -7,6 +7,7 @@ export const route_names = () => {
     const edit_account = "/dashboard/account/edit";
     const forgot_password = "/auth/forgot-password";
     const reset_password = "auth/reset-password/:token";
+    const products = "/dashboard/products";
 
     return {
         signin_path,
@@ -16,6 +17,7 @@ export const route_names = () => {
         view_account,
         forgot_password,
         edit_account,
-        reset_password
+        reset_password,
+        products
     }
 };
