@@ -18,6 +18,7 @@ interface IProductslist {
         name: string;
         description: string;
         category: Categories;
+        price: number;
         img?: string;
     }>
 }
@@ -29,12 +30,14 @@ export const ProductList: IProductslist = {
             name: "iphone 13",
             description: "Apple company",
             category: Categories.CellPhone,
+            price:1000,
             img: iphone
         },
         {
             id: "2",
             name: "table",
             description: "Wood company",
+            price:1000,
             category: Categories.KitchenAndDining
         }
     ]

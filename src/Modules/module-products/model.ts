@@ -5,7 +5,8 @@ export interface IProductModel {
     category: Categories;
     name: string;
     description: string;
-    img?:string;
+    price: number;
+    img?: string;
 }
 
 export interface IFormModel {
@@ -17,5 +18,5 @@ export interface IFormModel {
     handler_onView_home: () => void;
     handler_onView_car: () => void;
     onView_cellphone: () => void;
-    add_to_card: (id:string) => void;
+    add_to_card: (id: string) => void;
 }

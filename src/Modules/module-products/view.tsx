@@ -33,6 +33,7 @@ export const View = (props: IFormModel) => (
                         <div key={index} className="tw-bg-white tw-rounded-2xl tw-ml-4">
                             <div className="tw-p-8 tw-flex tw-justify-center"><img src={value.img} alt="iphone" className="tw-max-w-xl tw-max-h-72"/></div>
                             <div className="tw-flex tw-justify-center"><p>{value.name}</p></div>
+                            <div className="tw-flex tw-justify-center"><p>{value.price} $</p></div>
                             <Uikit.Button onClick={()=>props.add_to_card(value.id)} text="Add to Card" className="tw-w-32"/>
                             <Uikit.Button onClick={()=>{}} text="View Details" className="tw-w-32"/>
                         </div>
