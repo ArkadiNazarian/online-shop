@@ -7,6 +7,7 @@ module.exports = {
     colors: {
       'dark_purple': '#170233',
       'custom_white':'#dce3e9',
+      'white':'#ffffff',
       'custom_yellow':'#fef2d4',
       'custom_gray':'#374151',
       'custom_blue':'#112a81',
