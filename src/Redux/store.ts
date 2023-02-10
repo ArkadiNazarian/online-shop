@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { account_slice } from "../Modules/module-account/signin/redux/signin-reducer";
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
-import cardReducer from "../Modules/module-card/card-reducer";
+import cardReducer from "../Modules/module-card/redux/card-reducer";
 
 const persistedUserReducer = persistReducer(
     {

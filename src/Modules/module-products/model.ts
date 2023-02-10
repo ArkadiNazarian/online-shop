@@ -19,4 +19,5 @@ export interface IFormModel {
     handler_onView_car: () => void;
     onView_cellphone: () => void;
     add_to_card: (id: string) => void;
+    hanlder_onView_details: (id: string, category: Categories) => void;
 }

@@ -2,6 +2,7 @@ import { ForgotPassword } from '../Modules/module-account/forgot-password';
 import { ResetPassword } from '../Modules/module-account/reset-password';
 import { SignIn } from '../Modules/module-account/signin/component';
 import { Signup } from '../Modules/module-account/signup';
+import { ViewProduct } from '../Modules/module-card/component/index';
 import { Dashboard } from '../Modules/module-dashboard/view';
 import { Products } from '../Modules/module-products';
 import { EditAccount } from '../Modules/module-user/edit-account';
@@ -49,8 +50,12 @@ export const routes = () => {
             component: <EditAccount />
         },
         {
-            path:app_routes.products,
-            component:<Products/>
+            path: app_routes.products,
+            component: <Products />
+        },
+        {
+            path: app_routes.view_product,
+            component: <ViewProduct />
         }
     ];
 

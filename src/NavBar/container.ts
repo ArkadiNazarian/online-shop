@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getAccountSelector, sign_out } from "../Modules/module-account/signin/redux/signin-reducer";
-import { getCardSelector } from "../Modules/module-card/card-reducer";
+import { getCardSelector } from "../Modules/module-card/redux/card-reducer";
 import { useAppDispatch } from "../Redux/redux-hooks";
 import { route_names } from "../Routes/route-names";
 import { IModel } from "./model";
