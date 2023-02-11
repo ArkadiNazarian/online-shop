@@ -8,12 +8,14 @@ export const useContainer = (): IFormModel => {
     const card_data = useSelector(getCardSelector);
 
     const [products, set_products] = useState<Array<IProductModel>>();
-
+    const [total_price, set_total_price] = useState<number>();
     useEffect(() => {
-        set_products(card_data.products)
+        set_products(card_data.products);
+        set_total_price(card_data.total_price)
     }, [card_data]);
 
     return {
-        products
+        products,
+        total_price
     }
 }

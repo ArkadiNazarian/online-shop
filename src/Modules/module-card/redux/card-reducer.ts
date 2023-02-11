@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../Redux/store';
 import * as Enums from '../../../Enums/enums';
 
-
 interface IProductModel {
     id: string;
     name: string;
@@ -12,6 +11,7 @@ interface IProductModel {
     img?: string;
     number?: number;
 }
+
 export interface IStoreModel {
     total_price?: number;
     products_amount?: number;
@@ -43,8 +43,6 @@ export const card_slice = createSlice({
                 state.products.filter((value, index) => {
                     if (value.category === product_category?.category) {
                            return value.number !+= 1
-                        
-                        
                     } else {
                       return state.products.push(...action.payload.products); 
                     }
@@ -54,8 +52,7 @@ export const card_slice = createSlice({
             state.total_price = 0;
             state.products_amount! += 1;
             for (let index = 0; index < state.products.length; index++) {
-                state.total_price! += state.products[index].price;
-
+                state.total_price! += state.products[index].price * state.products[index].number!;
             }
         }
     }
