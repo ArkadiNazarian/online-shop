@@ -7,6 +7,7 @@ export interface IProductModel {
     description: string;
     price: number;
     img?: string;
+    number?:number;
 }
 
 export interface IFormModel {

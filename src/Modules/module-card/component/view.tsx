@@ -12,6 +12,8 @@ export const View = (props: IFormModel) => (
                             <p className="tw-text-base tw-font-normal tw-text-white">{index+1}-</p>
                             <img src={value.img} alt="iphone 13" className="tw-w-10 tw-ml-3"/>
                             <p className="tw-ml-10 tw-text-base tw-font-normal tw-text-white">{value.name}</p>
+                            <p>{value.price}</p>
+                            <p>X {value.number}</p>
                         </div>
                     ))
                 }
