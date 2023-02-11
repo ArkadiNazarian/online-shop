@@ -1,6 +1,6 @@
 import * as Enums from "../../../Enums/enums";
 
-export interface IProductModel {
+export interface IProductDetailsModel {
     id: string;
     category: Enums.Categories;
     name: string;
@@ -10,5 +10,7 @@ export interface IProductModel {
 }
 
 export interface IFormModel {
-    products?: Array<IProductModel>
+    product_details?: IProductDetailsModel;
+    handler_goback: () => void;
+    add_to_card: () => void;
 }

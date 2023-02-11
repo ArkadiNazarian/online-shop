@@ -2,12 +2,13 @@ import { ForgotPassword } from '../Modules/module-account/forgot-password';
 import { ResetPassword } from '../Modules/module-account/reset-password';
 import { SignIn } from '../Modules/module-account/signin/component';
 import { Signup } from '../Modules/module-account/signup';
-import { ViewProduct } from '../Modules/module-card/component/index';
+import { ViewProduct } from '../Modules/module-products/view-product';
 import { Dashboard } from '../Modules/module-dashboard/view';
-import { Products } from '../Modules/module-products';
+import { Products } from '../Modules/module-products/products';
 import { EditAccount } from '../Modules/module-user/edit-account';
 import { ViewAccount } from '../Modules/module-user/view-account';
 import { route_names } from './route-names';
+import { Card } from '../Modules/module-card/component/index';
 
 
 export const routes = () => {
@@ -56,6 +57,10 @@ export const routes = () => {
         {
             path: app_routes.view_product,
             component: <ViewProduct />
+        },
+        {
+            path: app_routes.view_card,
+            component: <Card />
         }
     ];
 

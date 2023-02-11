@@ -1,10 +1,10 @@
-import { NavBar } from "../../NavBar";
+import { NavBar } from "../../../NavBar";
 import { BsChevronRight, BsChevronCompactDown } from "react-icons/bs";
 import { IFormModel } from "./model";
-import * as Uikit from "../../UIKit";
+import * as Uikit from "../../../UIKit";
 
 export const View = (props: IFormModel) => (
-    <div className="tw-h-full">
+    <div>
         <NavBar />
         <div className="tw-flex tw-flex-row">
             <div className="tw-bg-custom_gray tw-w-60 tw-ml-8 tw-pl-4 tw-py-4 tw-rounded-lg tw-h-96">

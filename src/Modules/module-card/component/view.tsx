@@ -1,24 +1,22 @@
 import { NavBar } from "../../../NavBar";
 import { IFormModel } from "./model";
-import * as Uikit from "../../../UIKit/index";
 
 export const View = (props: IFormModel) => (
     <div>
         <NavBar />
         <div className="tw-flex tw-flex-row tw-justify-center">
-            <div className="tw-bg-custom_gray tw-w-1/2 tw-rounded-lg tw-p-8 tw-flex tw-flex-row">
-                <img src={props.product_details?.img} alt="product" />
-                <div className="tw-ml-4">
-                    <p className="tw-text-custom_light_green tw-text-base tw-font-semibold">{props.product_details?.name}</p>
-                    <p className="tw-text-white tw-text-sm tw-pt-4">{props.product_details?.description}</p>
-                    <p className="tw-text-white tw-text-sm">price: {props.product_details?.price} $</p>
-                    <div className="tw-flex tw-flex-row tw-mt-14">
-                    <Uikit.SubmitButton loading={false} className="tw-w-32" onClick={()=>props.add_to_card()} text="Add to Card"/>
-                    <Uikit.Button onClick={()=>props.handler_goback()} text="Back"/>
-                    </div>
-                    
-                </div>
+            <div className="tw-bg-custom_gray tw-w-1/2 tw-rounded-lg tw-p-8 tw-flex tw-flex-col">
+                {
+                    props.products?.map((value, index) => (
+                        <div key={index} className="tw-flex tw-flex-row tw-mt-4">
+                            <p className="tw-text-base tw-font-normal tw-text-white">{index+1}-</p>
+                            <img src={value.img} alt="iphone 13" className="tw-w-10 tw-ml-3"/>
+                            <p className="tw-ml-10 tw-text-base tw-font-normal tw-text-white">{value.name}</p>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     </div>
+
 )

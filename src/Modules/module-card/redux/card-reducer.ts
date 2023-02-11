@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../../Redux/store';
-import { Categories } from '../../module-products/products-list/list';
+import  * as Enums from '../../../Enums/enums';
 
 export interface IStoreModel {
     total_price?: number;
@@ -9,7 +9,7 @@ export interface IStoreModel {
         id: string;
         name: string;
         description: string;
-        category: Categories;
+        category: Enums.Categories;
         price: number;
         img?: string;
     }>

@@ -1,7 +1,7 @@
-import { useContainer } from "./container"
+import { useContainer } from "./container";
 import { View } from "./view";
 
-export const Card = () => {
+export const ViewProduct = () => {
     const props = useContainer();
     return <View {...props}/>
 }

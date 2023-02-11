@@ -5,4 +5,5 @@ export interface IModel {
     action_logout: () => void;
     handler_onView_account: () => void;
     handler_onView_products: () => void;
+    handler_onView_card: () => void;
 }

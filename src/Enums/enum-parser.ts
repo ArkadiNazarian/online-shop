@@ -1,4 +1,4 @@
-import { Categories } from "../Modules/module-products/products-list/list";
+import { Categories } from "./enums";
 
 export const categories_title = (category: Categories) => {
     switch (category) {

@@ -14,7 +14,7 @@ export const View = (props: IModel) => (
             <div className="tw-flex tw-flex-row tw-items-center tw-col-start-6">
                 <div className="tw-relative tw-text-3xl tw-mr-2 tw-text-dark_purple tw-cursor-pointer" >
                     {props.products_amount !== 0 && <p className="tw-absolute tw-left-5 tw-text-sm tw-bottom-3 tw-text-custom_background tw-bg-custom_gray tw-p-1 tw-rounded-full">{props.products_amount}</p>}
-                    <AiOutlineShoppingCart />
+                    <AiOutlineShoppingCart onClick={() => props.handler_onView_card()}/>
                 </div>
                 <div className="tw-flex tw-flex-row tw-items-center tw-mr-3 tw-cursor-pointer tw-text-dark_purple" onClick={() => props.handler_onView_account()}>
                     <RiAccountCircleLine className="tw-text-3xl" />

@@ -8,7 +8,8 @@ export const route_names = () => {
     const forgot_password = "/auth/forgot-password";
     const reset_password = "auth/reset-password/:token";
     const products = "/dashboard/products";
-    const view_product = "/dashboard/products/:category_title/:id";
+    const view_product = "/dashboard/products/:category_title/:id/view";
+    const view_card = "/dashboard/card/view";
 
     return {
         signin_path,
@@ -20,6 +21,7 @@ export const route_names = () => {
         edit_account,
         reset_password,
         products,
-        view_product
+        view_product,
+        view_card
     }
 };

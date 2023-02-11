@@ -1,23 +1,13 @@
-import iphone from "../../../images/download.png";
+import iphone from "../images/download.png";
+import * as Enums from "../Enums/enums";
 
-export enum Categories {
-    CellPhone = 0,
-    ComputerAndLaptop = 1,
-    Camera = 2,
-    KitchenAndDining = 3,
-    Bedding = 4,
-    Bath = 5,
-    Car = 6,
-    Motorcycle = 7,
-    TiresAndWheels = 8
-}
 
 interface IProductslist {
     products_list: Array<{
         id: string;
         name: string;
         description: string;
-        category: Categories;
+        category: Enums.Categories;
         price: number;
         img?: string;
     }>
@@ -29,7 +19,7 @@ export const ProductList: IProductslist = {
             id: "1",
             name: "iphone 13",
             description: "Apple company",
-            category: Categories.CellPhone,
+            category: Enums.Categories.CellPhone,
             price:1000,
             img: iphone
         },
@@ -38,7 +28,7 @@ export const ProductList: IProductslist = {
             name: "table",
             description: "Wood company",
             price:1000,
-            category: Categories.KitchenAndDining
+            category: Enums.Categories.KitchenAndDining
         }
     ]
 }
