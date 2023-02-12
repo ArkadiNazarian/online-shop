@@ -5,6 +5,8 @@ import { IFormModel, IProductDetailsModel } from "./model";
 import { ProductList } from "../../../products-list/list";
 import { useNavigate, useParams } from 'react-router-dom';
 import { route_names } from "../../../Routes/route-names";
+import { axios_config } from "../../../Axios/axios-config";
+import iphone from "../../../images/download.png";
 
 export const useContainer = (): IFormModel => {
 
@@ -17,8 +19,19 @@ export const useContainer = (): IFormModel => {
     const [product_details, set_product_details] = useState<IProductDetailsModel>();
 
     useEffect(() => {
-        const modified_list = ProductList.products_list.find((value, index) => value.id === id);
-        set_product_details(modified_list);
+        axios_config.get(`/front/products/${id}`)
+            .then((command_result) => {
+                const result = {
+                    _id: command_result.data._id,
+                    description: command_result.data.description,
+                    title: command_result.data.title,
+                    price: command_result.data.price,
+                    img: iphone
+                }
+                set_product_details(result);
+            })
+            .catch(()=> console.log("error"))
+
     }, [id]);
 
     const handler_goback = () => {
@@ -26,8 +39,8 @@ export const useContainer = (): IFormModel => {
     }
 
     const add_to_card = () => {
-        const modified_list = ProductList.products_list.filter((value, index) => value.id === id);
-        dispatch(add_card({ products: modified_list }))
+        // const modified_list = ProductList.products_list.filter((value, index) => value.id === id);
+        // dispatch(add_card({ products: modified_list }))
     }
 
     return {

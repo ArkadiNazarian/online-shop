@@ -1,9 +1,6 @@
-import * as Enums from "../../../Enums/enums";
-
 export interface IProductDetailsModel {
-    id: string;
-    category: Enums.Categories;
-    name: string;
+    _id: string;
+    title: string;
     description: string;
     price: number;
     img?: string;

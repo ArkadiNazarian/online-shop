@@ -1,12 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useAppDispatch } from "../../../Redux/redux-hooks";
 import { add_card } from "../../module-card/redux/card-reducer";
 import { IFormModel, IProductModel } from "./model";
 import { ProductList } from "../../../products-list/list";
-import * as Enums from "../../../Enums/enums";
 import { generatePath, useNavigate } from 'react-router-dom';
 import { route_names } from "../../../Routes/route-names";
-import { categories_title } from "../../../Enums/enum-parser";
+import { axios_config } from "../../../Axios/axios-config";
+import iphone from "../../../images/download.png";
 
 export const useContainer = (): IFormModel => {
 
@@ -38,8 +38,8 @@ export const useContainer = (): IFormModel => {
     }
 
     const onView_cellphone = () => {
-        const cell_phone_list = ProductList.products_list.filter((value, index) => value.category === Enums.Categories.CellPhone);
-        set_products(cell_phone_list)
+        // const cell_phone_list = ProductList.products_list.filter((value, index) => value.category === Enums.Categories.CellPhone);
+        // set_products(cell_phone_list)
     }
 
     const add_to_card = (id: string) => {
@@ -47,11 +47,27 @@ export const useContainer = (): IFormModel => {
         dispatch(add_card({ products: modified_product! }))
     }
 
-    const hanlder_onView_details = (id: string, category: Enums.Categories) => {
-        const category_title = categories_title(category);
-        const path = generatePath(app_routes.view_product, { id,category_title });
+    const hanlder_onView_details = (id: string) => {
+        const path = generatePath(app_routes.view_product, { id });
         navigate(path);
     }
+
+    useEffect(() => {
+        axios_config.get("/front/products")
+            .then((command_result) => {
+                const result = command_result.data.map((value: any, index: number) => {
+                    return {
+                        _id: value._id,
+                        description: value.description,
+                        title: value.title,
+                        price: value.price,
+                        img: iphone
+                    }
+                })
+                set_products(result)
+            })
+            .catch(()=> console.log("error"))
+    }, [])
 
     return {
         electronics,

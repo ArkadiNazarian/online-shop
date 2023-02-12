@@ -9,7 +9,7 @@ export const View = (props: IFormModel) => (
             <div className="tw-bg-custom_gray tw-w-1/2 tw-rounded-lg tw-p-8 tw-flex tw-flex-row">
                 <img src={props.product_details?.img} alt="product" />
                 <div className="tw-ml-4">
-                    <p className="tw-text-custom_light_green tw-text-base tw-font-semibold">{props.product_details?.name}</p>
+                    <p className="tw-text-custom_light_green tw-text-base tw-font-semibold">{props.product_details?.title}</p>
                     <p className="tw-text-white tw-text-sm tw-pt-4">{props.product_details?.description}</p>
                     <p className="tw-text-white tw-text-sm">price: {props.product_details?.price} $</p>
                     <div className="tw-flex tw-flex-row tw-mt-14">

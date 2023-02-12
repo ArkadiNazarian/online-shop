@@ -3,12 +3,12 @@ export const route_names = () => {
     const signup_path = "/auth/signup";
     const default_path = "*";
     const dashboard = "/dashboard";
-    const view_account = "/dashboard/account/view";
-    const edit_account = "/dashboard/account/edit";
+    const view_account = "/account/view";
+    const edit_account = "/account/edit";
     const forgot_password = "/auth/forgot-password";
     const reset_password = "auth/reset-password/:token";
-    const products = "/dashboard/products";
-    const view_product = "/dashboard/products/:category_title/:id/view";
+    const products = "/products";
+    const view_product = "/products/:id";
     const view_card = "/dashboard/card/view";
 
     return {

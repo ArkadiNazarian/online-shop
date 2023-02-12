@@ -1,10 +1,7 @@
-import * as Enums from "../../../Enums/enums";
-
 export interface IProductModel {
-    id: string;
-    name: string;
+    _id: string;
+    title: string;
     description: string;
-    category: Enums.Categories;
     price: number;
     img?: string;
 }
@@ -19,5 +16,5 @@ export interface IFormModel {
     handler_onView_car: () => void;
     onView_cellphone: () => void;
     add_to_card: (id: string) => void;
-    hanlder_onView_details: (id: string, category: Enums.Categories) => void;
+    hanlder_onView_details: (_id: string) => void;
 }
