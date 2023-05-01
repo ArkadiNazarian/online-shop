@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { getAccountSelector, get_identity } from './Modules/module-account/signin/redux/signin-reducer';
 import { useAppDispatch } from './Redux/redux-hooks';
 import { Routes as PublicRoutes, PrivateRoutes } from './Routes/custom-routes';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export function App() {
   const user_data = useSelector(getAccountSelector);

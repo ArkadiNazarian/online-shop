@@ -15,7 +15,9 @@ module.exports = {
       'custom_green':'#0cf2a6',
       'custom_light_green':'#affae3',
       'custom_background':'#f9ada0',
-      'custom_black':'#000000'
+      'custom_black':'#000000',
+      'custom_red':'#ff5b5b',
+      'custom_second_grey':'#797b80'
     },
     extend: {},
   },

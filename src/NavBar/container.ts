@@ -5,6 +5,7 @@ import { getCardSelector } from "../Modules/module-card/redux/card-reducer";
 import { useAppDispatch } from "../Redux/redux-hooks";
 import { route_names } from "../Routes/route-names";
 import { IModel } from "./model";
+import { useState } from "react";
 
 export const useContainer = (): IModel => {
 
@@ -13,6 +14,8 @@ export const useContainer = (): IModel => {
     const app_routes = route_names();
     const dispatch = useAppDispatch();
     const navigator = useNavigate()
+
+    const [open_side_bar,set_open_side_bar]=useState<boolean>(false)
 
     const action_logout = () => {
         dispatch(sign_out())
@@ -27,13 +30,14 @@ export const useContainer = (): IModel => {
     }
 
     const handler_onView_card=()=>{
-        navigator(app_routes.view_card);
+       set_open_side_bar(!open_side_bar)
     }
 
     return {
         first_name: user_data.user?.first_name,
         last_name: user_data.user?.last_name,
         products_amount: card_data.products_amount,
+        open_side_bar,
         action_logout,
         handler_onView_account,
         handler_onView_products,

@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-redux": "^8.0.5",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
@@ -32,7 +33,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start-app": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
