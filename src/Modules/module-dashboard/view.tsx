@@ -19,28 +19,28 @@ export const Dashboard = () => (
                 </div>
             </Carousel>
         </div>
-        <div className="tw-p-8 tw-flex tw-flex-wrap tw-gap-4 tw-justify-center">
-            <div className="tw-w-96 tw-bg-white tw-p-4">
+        <div className="tw-p-8 tw-flex tw-flex-wrap tw-gap-8 tw-justify-center">
+            <div className="hover:tw-scale-125 tw-duration-300 tw-w-96 tw-bg-white tw-p-4">
                 <p>Game accessories</p>
                 <img src={laptop} alt="carousel"/>
                 <p>See more</p>
             </div>
-            <div className="tw-w-96 tw-bg-white tw-p-4">
+            <div className="hover:tw-scale-125 tw-duration-300 tw-w-96 tw-bg-white tw-p-4">
                 <p>Game accessories</p>
                 <img src={laptop} alt="carousel"/>
                 <p>See more</p>
             </div>
-            <div className="tw-w-96 tw-bg-white tw-p-4">
+            <div className="hover:tw-scale-125 tw-duration-300 tw-w-96 tw-bg-white tw-p-4">
                 <p>Game accessories</p>
                 <img src={laptop} alt="carousel"/>
                 <p>See more</p>
             </div>
-            <div className="tw-w-96 tw-bg-white tw-p-4">
+            <div className="hover:tw-scale-125 tw-duration-300 tw-w-96 tw-bg-white tw-p-4">
                 <p>Game accessories</p>
                 <img src={laptop} alt="carousel"/>
                 <p>See more</p>
             </div>
-            <div className="tw-w-96 tw-bg-white tw-p-4">
+            <div className="hover:tw-scale-125 tw-duration-300 tw-w-96 tw-bg-white tw-p-4">
                 <p>Game accessories</p>
                 <img src={laptop} alt="carousel"/>
                 <p>See more</p>

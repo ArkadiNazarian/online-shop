@@ -7,4 +7,11 @@ export interface IModel {
     handler_onView_account: () => void;
     handler_onView_products: () => void;
     handler_onView_card: () => void;
+    on_pages:IOnPageModel;
+}
+
+export interface IOnPageModel {
+    home: boolean;
+    categories: boolean;
+    products: boolean;
 }
